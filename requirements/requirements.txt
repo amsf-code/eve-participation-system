@@ -1,0 +1,108 @@
+EVE-Participation System
+
+Statistik ueber die Teilnahme an Flotten innerhalb einer Allianz
+
+0 - Access / Loginsystem
+
+	Durch einfuegen des Allianznamens bzw Corpnamens wird definiert, wer beim klicken des links berechtigt ist "gespeichert zu werden"
+	
+	Usergruppe:
+	Bei einer Allianz:
+	
+	Allianz leadership: kann alles einsehen sowie FCs freischalten die Berechtigt sind paplinks zu erstellen.
+	
+	Corp CEOs: 
+	a. koennen die Statistik aller Corps sehen aber ohne exakte Pilotennamen / Schiffstypen (anti-spy) sprich nur die Ratio
+	
+	b. koennen die Gesammtstatistik ihrer Corp einsehen z.B. der jeweiligen Piloten und dessen schiffstypen
+	
+	User:
+	Koennen mittels ingame browser ueber das webinterface ihre persoenliche Statistik sowie ihren Rang im Ranking einsehen und das Ranking der Corps nach Ratio (ansporn fuer eine erhoehte Teilname)
+	
+	
+1 - Generierung einer url mittels Webinterface
+
+	Webinterface:
+
+	input: Fleetname = url name 
+	input: FC name(Character) 
+	input: Backup FC's(Charactere) 
+	input: Fleetboosters(Charactere) 
+	input: Doctrin name 
+	input: Reason 
+	input: Duration 
+	input: Date 
+	
+	output im ingame browser nach klicken der url:
+	if fleet_booster.character_name
+	"#{character_name} your participation in #{system} with #{ship} for #{fleet_name} was saved as fleetbooster!"
+	else
+	"#{character_name} your participation in #{system} with #{ship} for #{fleet_name} was saved!"
+	end
+	
+	url Eigenschaften:
+	url expires after 30 minutes (leechen verhindern)
+	
+	details output webinterface:
+	output: Fleetname 
+	output: FC name(Character) 
+	output: Backup FC's(Charactere) 
+	output: Fleetboosters(Charactere) 
+	output: Doctrin name 
+	output: Reason 
+	output: Duration 
+	output: Date 
+	output: Participated pilot list with shiptypes
+	
+	
+2 - url data input
+
+	Durch klicken der url ueber den ingame browser koennen eve_charid, eve_corpid, eve_allianceid, eve_shiptypeid, eve_solarsystemid abgerufen werden.
+	http://wiki.eveuniversity.org/In_Game_Browser_Development
+	
+	
+3 - DB
+
+	Table: alliance
+	eve_allianceid
+	
+	Table: corporations
+	eve_corpid, eve_allianceid, date, active
+	
+	Table: characters
+	eve_charid, eve_corpid, eve_allianceid, eve_shiptypeid, eve_solarsystemid, fleetbooster, fleetid, date, active
+	
+	Sollte eine Corp die Allianze verlassen oder gekickt werden, wir mittels api-check die Corp auf active = no gesetzt und verschwindet aus dem Ranking inklusive aller Chars in der entsprechenden Corp. Sollte ein Char seine Corp verlassen die nicht der Allianz angehoert, so greift dort das gleiche System. 
+	Wenn aber ein Char innerhalb der Allianz die Corp wechselt, so wird seine bisherigen Teilnahmen im Monat des Wechsels für seine alte Corp gezaehlt und alle restlichen Tage des Monats fuer die neue Corp. Das gesammt Ranking des Chars bleibt unberuehrt.
+	
+
+4 - Statistik
+
+	Ratio System pro Corp und pro Pilot die Anzahl der Flottenteilnahmen
+	Corp Ranking pro Monat / all time
+	Piloten Ranking pro Monat / all time
+	Booster Ranking pro Monat / all time
+	
+	Schiffstypen nach Kategorie der jeweiligen Corp / Piloten werden mit entsprechenden Rechten angezeigt.
+	
+	Eine Liste inaktiver Corporations / Charactere mit den gleichen Kriterien wie fuer aktive die von Allianzfuehrung einsehbar ist.
+	
+	eve_shiptypeid benoetigt aus der EVE SDE: typeIDs.yaml, groupIDs.yaml fuer die zuordnung der Kategorien.
+	
+	Beispiel & Formel:
+
+	Paplinks im Monat erstellt: 5
+	Corpmemberanzahl: 10
+	
+	Corp Piloten die teilgenommen haben:	Pilot1 - 3 Paplinks
+											Pilot2 - 5 Paplinks
+											Pilot3 - 1 Paplink
+
+	Maximale moegliche Teilnahmeanzahl(paplinks anzahl des Monats * Corpmemberanzahl): 50 
+	Gesammt an Flotten teilgenommen: 9  
+	
+	Formel: (Corpteilnehmeranzahl des Monats / (Corpmemberanzahl * erstelle Paplinks des Monats))*100 = 18% Aktivitaet
+	
+	
+
+	

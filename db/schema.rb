@@ -25,4 +25,6 @@ ActiveRecord::Schema.define(version: 20160527203652) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "participations", ["fleet_id", "eve_charid"], name: "index_participations_on_fleet_id_and_eve_charid", unique: true
+
 end

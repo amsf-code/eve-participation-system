@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :fleet, only: [:create, :show] do
-    resources :participation
+  resources :fleet, only: %i(create show) do
+    resource :participation, only: %i(create new show)
   end
 
   root 'home#index'

@@ -1,0 +1,10 @@
+<%= @fleet.id %>
+<br>
+<%= @eve_charid %>
+<br>
+
+<% if @participating %>
+  You already participating in this fleet
+<% else %>
+  <%= button_to 'I want IN!', fleet_participation_path(@fleet, Participation.new) %>
+<% end %>

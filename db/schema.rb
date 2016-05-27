@@ -15,8 +15,12 @@ ActiveRecord::Schema.define(version: 20160527193304) do
 
   create_table "fleets", force: :cascade do |t|
     t.string   "uuid"
+    t.string   "link_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "fleets", ["link_key"], name: "index_fleets_on_link_key", unique: true
+  add_index "fleets", ["uuid"], name: "index_fleets_on_uuid", unique: true
 
 end

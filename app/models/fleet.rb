@@ -1,10 +1,9 @@
 class Fleet < ActiveRecord::Base
   validates :uuid, uniqueness: true
+  validates :link_key, uniqueness: true
 
-  def self.build_fleet!
-    Fleet.new.tap do |fleet|
-      fleet.uuid = SecureRandom.uuid
-      fleet.save!
-    end
+  before_validation(on: :create) do
+    self.uuid = SecureRandom.uuid if uuid.blank?
+    self.link_key = SecureRandom.hex(20) if link_key.blank?
   end
 end

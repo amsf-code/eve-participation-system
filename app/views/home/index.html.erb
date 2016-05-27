@@ -1,4 +1,4 @@
-<table>
+<!-- <table>
   <%- @header.select { |name, value| name.starts_with?('HTTP_EVE')}.each do |name, value| %>
     <tr>
       <td>
@@ -9,4 +9,6 @@
       </td>
     </tr>
   <%- end %>
-</table>
+</table> -->
+
+<%= button_to 'create fleet', fleet_index_path, method: :post %>

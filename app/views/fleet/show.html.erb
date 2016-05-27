@@ -1,5 +1,2 @@
 <%= label_tag 'admin-url', 'Link to admin' %>
-<%= text_field_tag 'admin_url', fleet_url(id: @fleet.uuid), size: 100 %>
-<br>
-<%= label_tag 'admin-url', 'Player link' %>
-<%= text_field_tag 'admin_url', fleet_url(id: @fleet.uuid), size: 100 %>
+<%= text_field_tag 'admin_url', fleet_url, size: 100 %>

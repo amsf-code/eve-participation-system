@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :fleet, only: [:create, :show]
+  resources :fleet, only: [:create, :show] do
+    resources :participation
+  end
 
   root 'home#index'
 

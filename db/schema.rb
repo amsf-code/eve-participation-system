@@ -11,18 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_160_527_203_652) do
-  create_table 'fleets', force: :cascade do |t|
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+ActiveRecord::Schema.define(version: 20160527203652) do
+
+  create_table "fleets", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'participations', force: :cascade do |t|
-    t.integer  'fleet_id'
-    t.string   'eve_charid'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "participations", force: :cascade do |t|
+    t.integer  "fleet_id"
+    t.string   "eve_charid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index 'participations', %w(fleet_id eve_charid), name: 'index_participations_on_fleet_id_and_eve_charid', unique: true
+  add_index "participations", ["fleet_id", "eve_charid"], name: "index_participations_on_fleet_id_and_eve_charid", unique: true
+
 end

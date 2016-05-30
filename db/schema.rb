@@ -26,8 +26,13 @@ ActiveRecord::Schema.define(version: 20160527203652) do
   create_table "participations", force: :cascade do |t|
     t.integer  "fleet_id"
     t.string   "eve_charid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "eve_corpid"
+    t.string   "eve_allianceid"
+    t.string   "eve_shiptypeid"
+    t.string   "eve_solarsystemid"
+    t.string   "eve_stationid"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   add_index "participations", ["fleet_id", "eve_charid"], name: "index_participations_on_fleet_id_and_eve_charid", unique: true

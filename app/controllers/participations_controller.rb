@@ -22,5 +22,8 @@ class ParticipationsController < ApplicationController
 
   def load_eve_header
     @eve_charid = request.headers['HTTP_EVE_CHARID']
+    @eve_corpid = request.headers['HTTP_EVE_CORPID']
+    @eve_shiptypeid = request.headers['HTTP_EVE_SHIPTYPEID']
+    @eve_solarsystemid = request.headers['HTTP_EVE_SOLARSYSTEMID']
   end
 end

@@ -4,6 +4,12 @@ class CreateParticipations < ActiveRecord::Migration
       t.references :fleet
       t.string :eve_charid
 
+      t.string :eve_corpid
+      t.string :eve_allianceid
+      t.string :eve_shiptypeid
+      t.string :eve_solarsystemid
+      t.string :eve_stationid
+
       t.timestamps null: false
     end
 

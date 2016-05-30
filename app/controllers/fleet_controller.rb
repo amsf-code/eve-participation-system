@@ -1,9 +1,9 @@
 class FleetController < ApplicationController
   def create
-    fleet = Fleet.new(fleet_params)
-    fleet.save
+    @fleet = Fleet.new(fleet_params)
+    @fleet.save
 
-    redirect_to fleet_path(fleet)
+    redirect_to fleet_path(@fleet)
   end
 
   def show

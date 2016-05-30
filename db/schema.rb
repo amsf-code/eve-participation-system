@@ -16,6 +16,11 @@ ActiveRecord::Schema.define(version: 20160527203652) do
   create_table "fleets", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "fleet_name"
+    t.string   "fc_name"
+    t.string   "doctrin"
+    t.string   "details"
+    t.string   "duration"
   end
 
   create_table "participations", force: :cascade do |t|

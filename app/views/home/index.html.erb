@@ -1,32 +1,38 @@
-<h1>EVE Online fleet participation tool</h1>
+<div class="header">
+  <h1>EVE Online fleet participation tool</h1>
+</div>
 
-<%= form_for :fleet, url: fleet_index_path do |f| %>
-  <p>
-    <%= f.label :"fleet name" %><br>
-    <%= f.text_field :fleet_name %>
-  </p>
+<div class="submit_fleet">
+  <div class="text_center">
+    <%= form_for :fleet, url: fleet_index_path do |f| %>
+      <p>
+        <%= f.label :"fleet name" %><br>
+        <%= f.text_field :fleet_name %>
+      </p>
 
-  <p>
-    <%= f.label :"fleet commander name" %><br>
-    <%= f.text_field :fc_name %>
-  </p>
+      <p>
+        <%= f.label :"fleet commander name" %><br>
+        <%= f.text_field :fc_name %>
+      </p>
 
-  <p>
-    <%= f.label :"doctrin" %><br>
-    <%= f.text_field :doctrin %>
-  </p>
+      <p>
+        <%= f.label :"doctrin" %><br>
+        <%= f.text_field :doctrin %>
+      </p>
 
-  <p>
-    <%= f.label :"details" %><br>
-    <%= f.text_field :details %>
-  </p>
+      <p>
+        <%= f.label :"details" %><br>
+        <%= f.text_field :details %>
+      </p>
 
-  <p>
-    <%= f.label :"duration" %><br>
-    <%= f.text_field :duration %>
-  </p>
+      <p>
+        <%= f.label :"duration" %><br>
+        <%= f.text_field :duration %>
+      </p>
 
-  <p>
-    <%= f.submit :"create fleet"%>
-  </p>
-<% end %>
+      <p>
+        <%= f.submit :"create fleet"%>
+      </p>
+    <% end %>
+  </div>
+</div>

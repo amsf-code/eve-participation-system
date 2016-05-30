@@ -1,1 +1,18 @@
-<h1>YES!</h1>
+<div class="header">
+  <h1>Participation saved!</h1>
+</div>
+
+<div class="submit_result">
+  <div class="text_left">
+    <%= @fleet.id %>
+    <br>
+    <%= image_tag("https://image.eveonline.com/Character/#{@eve_charid}_128.jpg") %>
+    <%= image_tag("https://image.eveonline.com/Render/#{@eve_shiptypeid}_64.png") %>
+    <br>
+    <% if @eve_stationid != nil %>
+      <%= "Docked in #{@eve_solarsystemid}" %>
+      <% else %>
+      <%= "Somewhere in #{@eve_solarsystemid}" %>
+    <% end %>
+  </div>
+</div>

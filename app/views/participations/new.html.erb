@@ -1,10 +1,31 @@
-<%= @fleet.id %>
-<br>
-<%= @eve_charid %>
-<br>
+<div class="header">
+  <% if @participating %>
+    <h1>
+      You already saved your participation in this fleet!
+    </h1>
+  <% else %>
+    <h1>
+      Save your participation!
+    </h1>
+  <% end %>
+</div>
 
-<% if @participating %>
-  You already participating in this fleet
-<% else %>
-  <%= button_to 'I want IN!', fleet_participation_path(@fleet, Participation.new) %>
-<% end %>
+<div class="submit_result">
+  <div class="text_left">
+    <%= @fleet.id %>
+    <br>
+    <%= image_tag("https://image.eveonline.com/Character/#{@eve_charid}_128.jpg") %>
+    <%= image_tag("https://image.eveonline.com/Render/#{@eve_shiptypeid}_64.png") %>
+    <br>
+    <% if @eve_stationid != nil %>
+      <%= "Docked in #{@eve_solarsystemid}" %>
+      <% else %>
+      <%= "Somewhere in #{@eve_solarsystemid}" %>
+    <% end %>
+    <br>
+
+    <% if !@participating %>
+      <%= button_to 'Save me!', fleet_participation_path(@fleet, Participation.new) %>
+    <% end %>
+  </div>
+</div>

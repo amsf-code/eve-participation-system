@@ -9,10 +9,10 @@ class FleetController < ApplicationController
   def show
     @fleet = Fleet.find(params[:id])
   end
-end
 
-private
+  private
 
-def fleet_params
+  def fleet_params
     params.require(:fleet).permit(:fleet_name, :fc_name, :doctrin, :details, :duration)
+  end
 end

@@ -3,10 +3,10 @@ class CreateFleets < ActiveRecord::Migration
     create_table :fleets do |t|
       t.timestamps null: false
 
-      t.string :fleet_name
+      t.string :name
       t.string :fc_name
-      t.string :doctrin
-      t.string :details
+      t.text :doctrin
+      t.text :details
       t.string :duration
     end
   end

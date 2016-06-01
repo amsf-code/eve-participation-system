@@ -1,21 +1,21 @@
 class EveHeaderInjection
   HEADERS_TO_INJECT = {
-    'HTTP_EVE_SHIPNAME' => 'Aku Akachi\'s Ibis',
-    'HTTP_EVE_SOLARSYSTEMID' => '30001407',
-    'HTTP_EVE_CONSTELLATIONID' => '20000206',
-    'HTTP_EVE_SHIPID' => '1021246602932',
-    'HTTP_EVE_CONSTELLATIONNAME' => 'Karnola',
-    'HTTP_EVE_CORPNAME' => 'School of Applied Knowledge',
-    'HTTP_EVE_CHARID' => '96513301',
-    'HTTP_EVE_SHIPTYPENAME' => 'Ibis',
-    'HTTP_EVE_SHIPTYPEID' => '601',
-    'HTTP_EVE_CORPID' => '1000044',
-    'HTTP_EVE_SOLARSYSTEMNAME' => 'Todaki',
-    'HTTP_EVE_REGIONNAME' => 'Lonetrek',
-    'HTTP_EVE_REGIONID' => '10000016',
-    'HTTP_EVE_TRUSTED' => 'Yes',
-    'HTTP_EVE_SERVERIP' => '87.237.34.200:26000',
-    'HTTP_EVE_CHARNAME' => 'Aku Akachi'
+    'eve_shipname' => 'Aku Akachi\'s Ibis',
+    'eve_solarsystemid' => '30001407',
+    'eve_constellationid' => '20000206',
+    'eve_shipid' => '1021246602932',
+    'eve_constellationname' => 'Karnola',
+    'eve_corpname' => 'School of Applied Knowledge',
+    'eve_charid' => '96513301',
+    'eve_shiptypename' => 'Ibis',
+    'eve_shiptypeid' => '601',
+    'eve_corpid' => '1000044',
+    'eve_solarsystemname' => 'Todaki',
+    'eve_regionname' => 'Lonetrek',
+    'eve_regionid' => '10000016',
+    'eve_trusted' => 'Yes',
+    'eve_serverip' => '87.237.34.200:26000',
+    'eve_charname' => 'Aku Akachi'
   }.freeze
 
   def initialize(app)

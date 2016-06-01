@@ -1,3 +1,4 @@
+require 'EVEHeaders'
 class ParticipationsController < ApplicationController
   before_action :load_fleet, :load_eve_header
 
@@ -21,9 +22,10 @@ class ParticipationsController < ApplicationController
   end
 
   def load_eve_header
-    @eve_charid = request.headers['HTTP_EVE_CHARID']
-    @eve_corpid = request.headers['HTTP_EVE_CORPID']
-    @eve_shiptypeid = request.headers['HTTP_EVE_SHIPTYPEID']
-    @eve_solarsystemid = request.headers['HTTP_EVE_SOLARSYSTEMID']
+    eve_headers = EVEHeaders.new(request.headers)
+    @eve_charid = eve_headers.eve_charid
+    @eve_corpid = eve_headers.eve_corpid
+    @eve_shiptypeid = eve_headers.eve_shiptypeid
+    @eve_solarsystemid = eve_headers.eve_solarsystemid
   end
 end

@@ -1,4 +1,3 @@
-require 'EVEHeaders'
 class ParticipationsController < ApplicationController
   before_action :load_fleet, :load_eve_header
 
@@ -6,13 +5,17 @@ class ParticipationsController < ApplicationController
   end
 
   def new
-    @participating = @fleet.participations.find_by(eve_charid: @eve_charid).present?
+    @participating = @fleet.participations.find_by(eve_charid: @eve_char_info.id).present?
+    #@participating = @fleet.participating?(@eve_headers.charid)
   end
 
   def create
-    @fleet.participations.find_or_create_by(eve_charid: @eve_charid)
-
-    redirect_to fleet_participation_path(@fleet)
+    if @fleet.participating?(@eve_char_info.id)
+      render :show
+    else
+      @fleet.participations << Participation.build_from_eve_headers(@eve_char_info)
+      redirect_to fleet_participation_path(@fleet)
+    end
   end
 
   private
@@ -22,10 +25,6 @@ class ParticipationsController < ApplicationController
   end
 
   def load_eve_header
-    eve_headers = EVEHeaders.new(request.headers)
-    @eve_charid = eve_headers.eve_charid
-    @eve_corpid = eve_headers.eve_corpid
-    @eve_shiptypeid = eve_headers.eve_shiptypeid
-    @eve_solarsystemid = eve_headers.eve_solarsystemid
+    @eve_char_info = EVECharacterInfo.from_ingame_headers(request.headers)
   end
 end

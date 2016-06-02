@@ -5,8 +5,7 @@ class ParticipationsController < ApplicationController
   end
 
   def new
-    @participating = @fleet.participations.find_by(eve_charid: @eve_char_info.id).present?
-    #@participating = @fleet.participating?(@eve_headers.charid)
+    @participating = @fleet.participating?(@eve_char_info.id)
   end
 
   def create

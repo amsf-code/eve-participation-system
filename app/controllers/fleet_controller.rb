@@ -10,10 +10,6 @@ class FleetController < ApplicationController
     @fleet = Fleet.find(params[:id])
   end
 
-  def participating?(id)
-    Fleet.participations.find_by(eve_charid: @eve_char_info.id).present?
-  end
-
   private
 
   def fleet_params

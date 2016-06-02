@@ -8,7 +8,7 @@
     <%= ship_image_tag(@eve_char_info.shiptypeid) %>
     <%= corp_image_tag(@eve_char_info.corpid) %>
     <br>
-    <% if false %>
+    <% if @eve_char_info.stationid.present? %>
       <%= "Docked in #{@eve_char_info.solarsystemid}" %>
       <% else %>
       <%= "Somewhere in #{@eve_char_info.solarsystemid}" %>

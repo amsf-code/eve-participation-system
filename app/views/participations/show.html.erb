@@ -11,11 +11,11 @@
     <%= ship_image_tag(@eve_char_info.shiptypeid) %>
     <%= corp_image_tag(@eve_char_info.corpid) %>
     <div class="location">
-      <% if @eve_stationid != nil %>
-        <%= "Docked in #{@eve_solarsystemid}" %>
-        <% else %>
-        <%= "Somewhere in #{@eve_solarsystemid}" %>
-        <% end %>
+      <% if @eve_char_info.stationid.present? %>
+        <%= "Docked in #{@eve_char_info.solarsystemid}" %>
+      <% else %>
+        <%= "Somewhere in #{@eve_char_info.solarsystemid}" %>
+      <% end %>
     </div>
   </div>
 </div>

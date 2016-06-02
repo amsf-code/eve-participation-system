@@ -12,20 +12,23 @@
 
 <div class="submit_result">
   <div class="text_center">
-    <br>
-    <%= image_tag("https://image.eveonline.com/Character/#{@eve_charid}_128.jpg") %>
-    <%= image_tag("https://image.eveonline.com/Render/#{@eve_shiptypeid}_128.png") %>
-    <%= image_tag("https://image.eveonline.com/Corporation/#{@eve_corpid}_128.png") %>
-    <br>
-    <% if @eve_stationid != nil %>
-      <%= "Docked in #{@eve_solarsystemid}" %>
-      <% else %>
-      <%= "Somewhere in #{@eve_solarsystemid}" %>
-    <% end %>
-    <br>
-
-    <% if !@participating %>
-      <%= button_to 'Save me!', fleet_participation_path(@fleet, Participation.new) %>
-    <% end %>
+    <div class="fleet_name">
+      <%= @fleet.name %>
+    </div>
+    <%= char_image_tag(@eve_char_info.id) %>
+    <%= ship_image_tag(@eve_char_info.shiptypeid) %>
+    <%= corp_image_tag(@eve_char_info.corpid) %>
+    <div class="location">
+      <% if @eve_stationid != nil %>
+        <%= "Docked in #{@eve_solarsystemid}" %>
+        <% else %>
+        <%= "Somewhere in #{@eve_solarsystemid}" %>
+        <% end %>
+    </div>
   </div>
+</div>
+<div class="submit_button">
+  <% if !@participating %>
+    <%= button_to 'Save participation!', fleet_participation_path(@fleet, Participation.new) %>
+    <% end %>
 </div>

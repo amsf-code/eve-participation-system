@@ -4,7 +4,7 @@ module ParticipationHelper
   end
 
   def char_image_tag(char_id)
-    image_tag 'https://image.eveonline.com/Character/' + char_id + '_128.png'
+    image_tag 'https://image.eveonline.com/Character/' + char_id + '_128.jpg'
   end
 
   def corp_image_tag(corp_id)

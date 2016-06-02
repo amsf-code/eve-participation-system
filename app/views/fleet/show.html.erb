@@ -4,16 +4,13 @@
 
 <div class="show_fleet_created">
   <div class="text_left">
-
     <%= label_tag 'admin-url', 'Link to admin' %>
+    <br>
     <%= text_field_tag 'admin_url', fleet_url, size: 100 %>
     <br>
+    <br>
     <%= label_tag 'player-url', 'Player link' %>
+    <br>
     <%= text_field_tag 'player_url', new_fleet_participation_url(@fleet), size: 100 %>
-
-    <% @fleet.participations.each do |participation| %>
-      <%= participation.eve_charid %>
-      <br>
-    <% end %>
   </div>
 </div>

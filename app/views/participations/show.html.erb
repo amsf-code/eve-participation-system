@@ -4,14 +4,14 @@
 
 <div class="submit_result">
   <div class="text_center">
-    <%= image_tag("https://image.eveonline.com/Character/#{@eve_charid}_128.jpg") %>
-    <%= image_tag("https://image.eveonline.com/Render/#{@eve_shiptypeid}_128.png") %>
-    <%= image_tag("https://image.eveonline.com/Corporation/#{@eve_corpid}_128.png") %>
+    <%= char_image_tag(@eve_char_info.id) %>
+    <%= ship_image_tag(@eve_char_info.shiptypeid) %>
+    <%= corp_image_tag(@eve_char_info.corpid) %>
     <br>
-    <% if @eve_stationid != nil %>
-      <%= "Docked in #{@eve_solarsystemid}" %>
+    <% if @eve_char_info.stationid.present? %>
+      <%= "Docked in #{@eve_char_info.solarsystemid}" %>
       <% else %>
-      <%= "Somewhere in #{@eve_solarsystemid}" %>
+      <%= "Somewhere in #{@eve_char_info.solarsystemid}" %>
     <% end %>
   </div>
 </div>

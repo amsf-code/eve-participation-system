@@ -9,6 +9,7 @@ class CreateParticipations < ActiveRecord::Migration
       t.string :eve_shiptypeid
       t.string :eve_solarsystemid
       t.string :eve_stationid
+      t.string :eve_constellationid
 
       t.timestamps null: false
     end

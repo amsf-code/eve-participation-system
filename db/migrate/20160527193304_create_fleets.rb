@@ -5,6 +5,8 @@ class CreateFleets < ActiveRecord::Migration
 
       t.string :name
       t.string :fc_name
+      t.text :backup_fcs
+      t.text :fleet_booster
       t.text :doctrin
       t.text :details
       t.string :duration

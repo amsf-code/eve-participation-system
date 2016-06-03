@@ -89,3 +89,11 @@
    color: #DFDFDF;
    font-size: 1.2em;
  }
+
+ .warning {
+   text-align: center;
+   margin-top: 6px;
+   margin-bottom: 6px;
+   color: #ff0000;
+   font-size: 1.4em;
+ }

@@ -4,25 +4,19 @@
 
 <div class="submit_fleet">
   <div class="text_center">
+    <div class="warning">
+      <%= flash[:input_missing] %>
+    </div>
+
     <%= form_for :fleet, url: fleet_index_path do |f| %>
       <p>
         <%= f.label :"fleet name" %><br>
         <%= f.text_field :name %>
-        <% if flash[:fleet_name_missing] %>
-          <div class="warning">
-            <%= flash[:fleet_name_missing] %>
-          </div>
-        <% end %>
       </p>
 
       <p>
         <%= f.label :"fleet commander name" %><br>
         <%= f.text_field :fc_name %>
-        <% if flash[:fleet_commander_name_missing] %>
-          <div class="warning">
-            <%= flash[:fleet_commander_name_missing] %>
-          </div>
-        <% end %>
       </p>
 
       <p>
@@ -38,31 +32,16 @@
       <p>
         <%= f.label :"doctrin" %><br>
         <%= f.text_field :doctrin %>
-        <% if flash[:doctrin_missing] %>
-          <div class="warning">
-            <%= flash[:doctrin_missing] %>
-          </div>
-        <% end %>
       </p>
 
       <p>
         <%= f.label :"details" %><br>
         <%= f.text_field :details %>
-        <% if flash[:details_missing] %>
-          <div class="warning">
-            <%= flash[:details_missing] %>
-          </div>
-        <% end %>
       </p>
 
       <p>
         <%= f.label :"duration" %><br>
         <%= f.text_field :duration %>
-        <% if flash[:duration_missing] %>
-          <div class="warning">
-            <%= flash[:duration_missing] %>
-          </div>
-        <% end %>
       </p>
 
       <p>

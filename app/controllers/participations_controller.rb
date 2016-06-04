@@ -6,10 +6,11 @@ class ParticipationsController < ApplicationController
 
   def new
     @participating = @fleet.participating?(@eve_char_info.id)
+    @expired = @fleet.expired?
   end
 
   def create
-    if @fleet.participating?(@eve_char_info.id)
+    if @fleet.participating?(@eve_char_info.id) || @fleet.expired?
       render :show
     else
       @fleet.participations << Participation.build_from_eve_headers(@eve_char_info)

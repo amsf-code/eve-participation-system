@@ -1,5 +1,17 @@
 <div class="header">
-  <h1>Participation link successfully created</h1>
+  <h1><%= @fleet.name %></h1>
+</div>
+
+<div class="show_fleet_created">
+  <div class="text_left">
+    FC name: <%= @fleet.fc_name %><p/>
+    Backup: <%= @fleet.backup_fcs %><p/>
+    Booster: <%= @fleet.fleet_booster %><p/>
+    Doctrin: <%= @fleet.doctrin %><p/>
+    Details: <%= @fleet.details %><p/>
+    Duration: <%= @fleet.duration %><p/>
+    Created: <%= @fleet.created_at %>
+  </div>
 </div>
 
 <div class="show_fleet_created">
@@ -12,5 +24,17 @@
     <%= label_tag 'player-url', 'Player link' %>
     <br>
     <%= text_field_tag 'player_url', new_fleet_participation_url(@fleet), size: 100 %>
+  </div>
+</div>
+
+<div class="show_fleet_created">
+  <div class="text_left">
+    <% @fleet.participations.each do |participation| %>
+      <tr>
+        <td><%= participation.eve_charname %></td>
+        <td><%= participation.eve_shiptypename %></td>
+      </tr>
+      <br>
+    <% end %>
   </div>
 </div>

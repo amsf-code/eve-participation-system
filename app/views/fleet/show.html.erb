@@ -4,13 +4,13 @@
 
 <div class="show_fleet_created">
   <div class="text_left">
-    FC name: <%= @fleet.fc_name %><p/>
-    Backup: <%= @fleet.backup_fcs %><p/>
-    Booster: <%= @fleet.fleet_booster %><p/>
-    Doctrin: <%= @fleet.doctrin %><p/>
-    Details: <%= @fleet.details %><p/>
-    Duration: <%= @fleet.duration %><p/>
-    Created: <%= @fleet.created_at %>
+    <p> FC name: <%= @fleet.fc_name %> </p>
+    <p> Backup: <%= @fleet.backup_fcs %> </p>
+    <p> Booster: <%= @fleet.fleet_booster %> </p>
+    <p> Doctrin: <%= @fleet.doctrin %> </p>
+    <p> Details: <%= @fleet.details %> </p>
+    <p> Duration: <%= @fleet.duration %> </p>
+    <p> Created: <%= @fleet.created_at %> </p>
   </div>
 </div>
 
@@ -18,12 +18,12 @@
   <div class="text_left">
     <%= label_tag 'admin-url', 'Link to admin' %>
     <br>
-    <%= text_field_tag 'admin_url', fleet_url %>
+    <%= text_field_tag 'admin_url', fleet_url, class: "url_box" %>
     <br>
     <br>
     <%= label_tag 'player-url', 'Player link' %>
     <br>
-    <%= text_field_tag 'player_url', new_fleet_participation_url(@fleet) %>
+    <%= text_field_tag 'player_url', new_fleet_participation_url(@fleet) , class: "url_box" %>
   </div>
 </div>
 

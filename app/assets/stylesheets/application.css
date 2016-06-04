@@ -23,6 +23,8 @@
    color: #FF6600;
  }
 
+ .
+
  .submit_fleet {
    background-color: #343434;
    border-style: solid;
@@ -87,4 +89,8 @@
    margin-bottom: 6px;
    color: #DFDFDF;
    font-size: 1.2em;
+ }
+
+ .url_box {
+   width: 100%;
  }

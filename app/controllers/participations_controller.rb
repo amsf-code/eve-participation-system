@@ -6,7 +6,7 @@ class ParticipationsController < ApplicationController
 
   def new
     @participating = @fleet.participating?(@eve_char_info.id)
-    puts @expired = @fleet.expired?
+    @expired = @fleet.expired?
   end
 
   def create

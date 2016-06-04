@@ -6,7 +6,6 @@ class Fleet < ActiveRecord::Base
   end
 
   def expired?
-    #expired if the fleet was created more than 20mins ago
-    created_at + (60 * 20) < Time.now
+    created_at > 20.minutes.ago
   end
 end

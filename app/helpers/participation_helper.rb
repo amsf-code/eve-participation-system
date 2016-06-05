@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module ParticipationHelper
   def ship_image_tag(ship_type_id)
     image_tag 'https://image.eveonline.com/Render/' + ship_type_id + '_128.png'

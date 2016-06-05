@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Fleet < ActiveRecord::Base
   has_many :participations
 

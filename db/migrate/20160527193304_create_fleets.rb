@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateFleets < ActiveRecord::Migration
   def change
     create_table :fleets do |t|

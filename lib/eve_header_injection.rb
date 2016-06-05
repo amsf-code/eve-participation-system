@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class EveHeaderInjection
   HEADERS_TO_INJECT = {
     'eve_shipname' => 'Aku Akachi\'s Ibis',

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
 class EVECharacterInfo
-  attr_reader :id, :name, :constellationid, :constellationname, :corpid, :corpname, :allianceid, :alliancename, :solarsystemid, :shiptypeid, :shiptypename, :stationid
+  attr_reader :id, :name, :constellationid, :constellationname, :corpid, :corpname, :allianceid,
+              :alliancename, :solarsystemid, :shiptypeid, :shiptypename, :stationid
 
   def self.from_ingame_headers(headers)
     new(headers)

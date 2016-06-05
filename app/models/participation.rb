@@ -1,8 +1,8 @@
+# frozen_string_literal: true
 class Participation < ActiveRecord::Base
   belongs_to :fleet
 
   validates :eve_charid, uniqueness: { scope: :fleet_id }
-
 
   def self.build_from_eve_headers(eve_char_info)
     new.tap do |participation|
@@ -26,16 +26,3 @@ class Participation < ActiveRecord::Base
     end
   end
 end
-
-
-=begin
-@id = headers['eve_charid']
-#name = headers['eve_charname']
-@constellationid = headers['eve_constellationid']
-#@constellationname = headers['eve_constellationname']
-@corpid = headers['eve_corpid']
-@allianceid = headers['eve_allianceid']
-@solarsystemid = headers['eve_solarsystemid']
-@shiptypeid = headers['eve_shiptypeid']
-
-=end

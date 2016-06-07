@@ -2,9 +2,13 @@
 class FleetController < ApplicationController
   def create
     fleet = Fleet.new(fleet_params)
-    fleet.save
 
-    redirect_to fleet_path(fleet)
+    if fleet.save
+      redirect_to fleet_path(fleet)
+    else
+      flash[:input_missing] = fleet.errors.full_messages.to_sentence
+      redirect_to root_path
+    end
   end
 
   def show

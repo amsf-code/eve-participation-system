@@ -2,7 +2,10 @@
 class Fleet < ActiveRecord::Base
   has_many :participations
 
-  validates :name, :fc_name, :doctrin, :details, :duration, :hours, :minutes, presence: true
+  attr_accessor :hours, :minutes
+
+  validates :name, :fc_name, :doctrin, :details, presence: true
+  validates :duration, numericality: { greater_than: 10, message: "can't be less then 10 minutes" }
 
   def participating?(eve_charid)
     participations.find_by(eve_charid: eve_charid).present?

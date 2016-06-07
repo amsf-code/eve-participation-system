@@ -41,7 +41,10 @@
 
       <p>
         <%= f.label :"duration" %><br>
-        <%= f.text_field :duration %>
+        <%= f.select :hours, '00'..'24' %>
+        <%= 'hh' %>
+        <%= f.select :minutes, '00'..'59' %>
+        <%= 'mm' %>
       </p>
 
       <p>

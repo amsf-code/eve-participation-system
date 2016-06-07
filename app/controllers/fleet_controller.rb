@@ -18,6 +18,6 @@ class FleetController < ApplicationController
   private
 
   def fleet_params
-    params.require(:fleet).permit(:name, :fc_name, :backup_fcs, :fleet_booster, :doctrin, :details, :duration)
+    params.require(:fleet).permit(:name, :fc_name, :backup_fcs, :fleet_booster, :doctrin, :details, :duration, :hours, :minutes)
   end
 end

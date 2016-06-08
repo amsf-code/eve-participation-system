@@ -7,14 +7,14 @@
     <div class="fleet_name">
       <%= @fleet.name %>
     </div>
-    <%= char_image_tag(@eve_char_info.id) %>
-    <%= ship_image_tag(@eve_char_info.shiptypeid) %>
-    <%= corp_image_tag(@eve_char_info.corpid) %>
+    <%= char_image_tag(@eve_character_info.id) %>
+    <%= ship_image_tag(@eve_character_info.shiptypeid) %>
+    <%= corp_image_tag(@eve_character_info.corpid) %>
     <div class="location">
-      <% if @eve_char_info.stationid.present? %>
-        <%= "Docked in #{@eve_char_info.solarsystemid}" %>
+      <% if @eve_character_info.stationid.present? %>
+        <%= "Docked in #{@eve_character_info.solarsystemid}" %>
       <% else %>
-        <%= "Somewhere in #{@eve_char_info.solarsystemid}" %>
+        <%= "Somewhere in #{@eve_character_info.solarsystemid}" %>
       <% end %>
     </div>
   </div>

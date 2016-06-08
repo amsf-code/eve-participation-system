@@ -14,85 +14,89 @@
  *= require_self
  */
 
-  body { background-color: #1F1F1F; }
+body { background-color: #1F1F1F; }
 
- .header {
-   text-align: center;
-   position: relative;
-   font-size: 1em;
-   color: #FF6600;
- }
+.header {
+  text-align: center;
+  position: relative;
+  font-size: 1em;
+  color: #FF6600;
+}
 
- .submit_fleet {
-   background-color: #343434;
-   border-style: solid;
-   border-color: #262626;
-   border-width: 5px;
-   margin-left: 35%;
-   margin-right: 35%;
- }
+.submit_fleet {
+  background-color: #343434;
+  border-style: solid;
+  border-color: #262626;
+  border-width: 5px;
+  margin-left: 35%;
+  margin-right: 35%;
+}
 
- .show_fleet_created {
-   background-color: #343434;
-   border-style: solid;
-   border-color: #262626;
-   border-width: 5px;
-   margin-left: 28.5%;
-   margin-right: 28.5%;
-   padding: 15px;
- }
+.show_fleet_created {
+  background-color: #343434;
+  border-style: solid;
+  border-color: #262626;
+  border-width: 5px;
+  margin-left: 28.5%;
+  margin-right: 28.5%;
+  padding: 15px;
+}
 
- .submit_result {
-   background-color: #343434;
-   border-style: solid;
-   border-color: #262626;
-   border-width: 5px;
-   margin-left: 35%;
-   margin-right: 35%;
-   padding: 15px;
- }
+.submit_result {
+  background-color: #343434;
+  border-style: solid;
+  border-color: #262626;
+  border-width: 5px;
+  margin-left: 35%;
+  margin-right: 35%;
+  padding: 15px;
+}
 
- .submit_button {
-   text-align: center;
-   margin-top: 1%;
- }
+.submit_button {
+  text-align: center;
+  margin-top: 1%;
+}
 
- .text_left {
-   text-align: left;
-   margin-left: 6px;
-   margin-right: 6px;
-   color: #DFDFDF;
-   font-size: 1em;
- }
+.text_left {
+  text-align: left;
+  margin-left: 6px;
+  margin-right: 6px;
+  color: #DFDFDF;
+  font-size: 1em;
+}
 
- .text_center {
-   text-align: center;
-   margin-left: 6px;
-   margin-right: 6px;
-   color: #DFDFDF;
-   font-size: 1em;
- }
+.text_center {
+  text-align: center;
+  margin-left: 6px;
+  margin-right: 6px;
+  color: #DFDFDF;
+  font-size: 1em;
+}
 
- .fleet_name {
-   text-align: center;
-   margin-top: 6px;
-   margin-bottom: 6px;
-   color: #DFDFDF;
-   font-size: 1.2em;
- }
+.fleet_name {
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  color: #DFDFDF;
+  font-size: 1.2em;
+}
 
- .location {
-   text-align: center;
-   margin-top: 6px;
-   margin-bottom: 6px;
-   color: #DFDFDF;
-   font-size: 1.2em;
- }
+.location {
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  color: #DFDFDF;
+  font-size: 1.2em;
+}
 
- .warning {
-   text-align: center;
-   margin-top: 6px;
-   margin-bottom: 6px;
-   color: #ff0000;
-   font-size: 1.4em;
- }
+.warning {
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  color: #ff0000;
+  font-size: 1.4em;
+}
+
+.url_box {
+  width: 100%;
+}

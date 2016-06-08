@@ -38,7 +38,8 @@ group :development, :test do
   gem 'rubocop'
 
   gem 'rspec-rails'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :development do

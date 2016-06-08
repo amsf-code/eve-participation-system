@@ -27,6 +27,12 @@ RSpec.describe Fleet, type: :model do
       it { is_expected.to be true }
     end
 
+    context 'when created 20 minutes ago' do
+      subject { FactoryGirl.build_stubbed(:fleet, created_at: 20.minutes.ago).expired? }
+
+      it { is_expected.to be false }
+    end
+    
     context 'when created less than 20 minutes ago' do
       subject { FactoryGirl.build_stubbed(:fleet, created_at: 19.minutes.ago).expired? }
 

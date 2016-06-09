@@ -40,11 +40,13 @@
       </p>
 
       <p>
-        <%= f.label :"duration" %><br>
-        <%= f.select :hours, '00'..'24' %>
-        <%= 'hh' %>
-        <%= f.select :minutes, '00'..'59' %>
-        <%= 'mm' %>
+        <%= f.label :"started_at" %><br>
+        <%= f.datetime_select :started_at, min: Date.today %>
+      </p>
+
+      <p>
+        <%= f.label :"ended_at" %><br>
+        <%= f.datetime_select :ended_at, min: Date.today %>
       </p>
 
       <p>

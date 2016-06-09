@@ -2,10 +2,21 @@
 class Fleet < ActiveRecord::Base
   has_many :participations
 
-  attr_accessor :hours, :minutes
-
   validates :name, :fc_name, :doctrin, :details, presence: true
-  validates :duration, numericality: { greater_than: 10, message: "can't be less then 10 minutes" }
+
+  validate :started_at_date, :ended_at_date
+
+  def started_at_date
+    if started_at == ended_at
+      errors.add(:started_at, "can't be the same time as Ended_at")
+    end
+  end
+
+  def ended_at_date
+    if ended_at < started_at
+      errors.add(:ended_at, "can't be in the past before the fleet Started_at")
+    end
+  end
 
   def participating?(eve_charid)
     participations.find_by(eve_charid: eve_charid).present?

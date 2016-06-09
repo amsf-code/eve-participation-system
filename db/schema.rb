@@ -22,7 +22,8 @@ ActiveRecord::Schema.define(version: 20160527203652) do
     t.text     "fleet_booster"
     t.text     "doctrin"
     t.text     "details"
-    t.string   "duration"
+    t.datetime "started_at",    null: false
+    t.datetime "ended_at",      null: false
   end
 
   create_table "participations", force: :cascade do |t|

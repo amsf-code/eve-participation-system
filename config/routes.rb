@@ -2,9 +2,13 @@
 Rails.application.routes.draw do
   resources :fleet, only: %i(create show) do
     resource :participation, only: %i(create new show)
+
+  resources :user, only: %i(show)
   end
 
   root 'home#index'
+
+  get '/auth/crest/callback', to: 'sessions#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

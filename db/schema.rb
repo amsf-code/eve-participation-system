@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527203652) do
+ActiveRecord::Schema.define(version: 20160611194446) do
 
   create_table "fleets", force: :cascade do |t|
     t.datetime "created_at",    null: false
@@ -44,5 +44,10 @@ ActiveRecord::Schema.define(version: 20160527203652) do
   end
 
   add_index "participations", ["fleet_id", "eve_charid"], name: "index_participations_on_fleet_id_and_eve_charid", unique: true
+
+  create_table "users", force: :cascade do |t|
+    t.string  "character_name"
+    t.integer "character_id"
+  end
 
 end

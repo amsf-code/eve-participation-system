@@ -8,13 +8,13 @@ class Fleet < ActiveRecord::Base
 
   def started_at_date
     if started_at == ended_at
-      errors.add(:started_at, "can't be the same time as Ended_at")
+      errors.add(:started_at, "can't be the same time as Ended at")
     end
   end
 
   def ended_at_date
     if ended_at < started_at
-      errors.add(:ended_at, "can't be in the past before the fleet Started_at")
+      errors.add(:ended_at, "can't be in the past before the fleet Started at")
     end
   end
 

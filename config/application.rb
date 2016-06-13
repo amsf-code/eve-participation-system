@@ -23,6 +23,11 @@ module Eve
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+
+    # added so the .env is found in the rails root directory and loaded.
+    Dotenv.load Rails.root.join('crest_auth.env')
+    Spring.watch Rails.root.join('crest_auth.env') if defined?(Spring)
+
     config.active_record.raise_in_transactional_callbacks = true
 
     config.middleware.use EveHeaderInjection

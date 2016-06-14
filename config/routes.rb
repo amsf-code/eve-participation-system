@@ -2,9 +2,9 @@
 Rails.application.routes.draw do
   resources :fleet, only: %i(create show) do
     resource :participation, only: %i(create new show)
+  end
 
   resources :user, only: %i(show)
-  end
 
   root 'home#index'
 

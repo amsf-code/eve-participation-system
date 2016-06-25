@@ -9,7 +9,8 @@
     <p> Booster: <%= @fleet.fleet_booster %> </p>
     <p> Doctrin: <%= @fleet.doctrin %> </p>
     <p> Details: <%= @fleet.details %> </p>
-    <p> Duration: <%= @fleet.duration %> </p>
+    <p> Fleet started at: <%= @fleet.started_at %> </p>
+    <p> Fleet ended at: <%= @fleet.ended_at %> </p>
     <p> Created: <%= @fleet.created_at %> </p>
   </div>
 </div>
@@ -18,29 +19,23 @@
   <div class="text_left">
     <%= label_tag 'admin-url', 'Link to admin' %>
     <br>
-    <%= text_field_tag 'admin_url', fleet_url, class: "url_box" %>
+    <%= text_field_tag 'admin_url', fleet_url, size: 100 %>
     <br>
     <br>
     <%= label_tag 'player-url', 'Player link' %>
     <br>
-    <%= text_field_tag 'player_url', new_fleet_participation_url(@fleet) , class: "url_box" %>
+    <%= text_field_tag 'player_url', new_fleet_participation_url(@fleet), size: 100 %>
   </div>
 </div>
 
 <div class="show_fleet_created">
   <div class="text_left">
-    <table>
+    <% @fleet.participations.each do |participation| %>
       <tr>
-        <th>pilot</th>
-        <th>ship type</th>
+        <td><%= participation.eve_charname %></td>
+        <td><%= participation.eve_shiptypename %></td>
       </tr>
-      <% @fleet.participations.each do |participation| %>
-        <tr>
-          <td><%= participation.eve_charname %></td>
-          <td><%= participation.eve_shiptypename %></td>
-        </tr>
-        <br>
-      <% end %>
-    </table>
+      <br>
+    <% end %>
   </div>
 </div>

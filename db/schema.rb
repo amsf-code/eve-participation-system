@@ -11,7 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160611194446) do
+ActiveRecord::Schema.define(version: 20160623143511) do
+
+  create_table "alliances", force: :cascade do |t|
+    t.string   "eve_allianceid"
+    t.string   "eve_alliancename"
+    t.string   "active"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "alliances", ["eve_allianceid"], name: "index_alliances_on_eve_allianceid", unique: true
+
+  create_table "characters", force: :cascade do |t|
+    t.string   "eve_charid"
+    t.string   "eve_charname"
+    t.string   "eve_corpid"
+    t.string   "eve_allianceid"
+    t.string   "active"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "characters", ["eve_charid"], name: "index_characters_on_eve_charid", unique: true
+
+  create_table "corporations", force: :cascade do |t|
+    t.string   "eve_corpid"
+    t.string   "eve_corpname"
+    t.string   "active"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "corporations", ["eve_corpid"], name: "index_corporations_on_eve_corpid", unique: true
 
   create_table "fleets", force: :cascade do |t|
     t.datetime "created_at",    null: false

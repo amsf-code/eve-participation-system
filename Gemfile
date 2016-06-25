@@ -29,6 +29,11 @@ gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'omniauth'
 gem 'omniauth-crest'
 
+gem 'rest-client'
+gem 'mime-types'
+gem 'netrc'
+gem 'http-cookie'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

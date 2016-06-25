@@ -11,7 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613174020) do
+ActiveRecord::Schema.define(version: 20160623143511) do
+
+  create_table "alliances", force: :cascade do |t|
+    t.string   "eve_allianceid"
+    t.string   "eve_alliancename"
+    t.string   "active"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "alliances", ["eve_allianceid"], name: "index_alliances_on_eve_allianceid", unique: true
+
+  create_table "characters", force: :cascade do |t|
+    t.string   "eve_charid"
+    t.string   "eve_charname"
+    t.string   "eve_corpid"
+    t.string   "eve_allianceid"
+    t.string   "active"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "characters", ["eve_charid"], name: "index_characters_on_eve_charid", unique: true
+
+  create_table "corporations", force: :cascade do |t|
+    t.string   "eve_corpid"
+    t.string   "eve_corpname"
+    t.string   "active"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "corporations", ["eve_corpid"], name: "index_corporations_on_eve_corpid", unique: true
 
   create_table "fleets", force: :cascade do |t|
     t.datetime "created_at",    null: false
@@ -22,8 +54,7 @@ ActiveRecord::Schema.define(version: 20160613174020) do
     t.text     "fleet_booster"
     t.text     "doctrin"
     t.text     "details"
-    t.datetime "started_at"
-    t.datetime "ended_at"
+    t.string   "duration"
   end
 
   create_table "participations", force: :cascade do |t|
@@ -45,5 +76,10 @@ ActiveRecord::Schema.define(version: 20160613174020) do
   end
 
   add_index "participations", ["fleet_id", "eve_charid"], name: "index_participations_on_fleet_id_and_eve_charid", unique: true
+
+  create_table "users", force: :cascade do |t|
+    t.string  "character_name"
+    t.integer "character_id"
+  end
 
 end

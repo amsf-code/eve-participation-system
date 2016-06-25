@@ -17,3 +17,6 @@
 /tmp
 .byebug_history
 examples.txt
+
+#ignore .env file
+.env

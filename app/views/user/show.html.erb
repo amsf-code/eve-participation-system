@@ -1,16 +1,14 @@
 <div class="box">
   <div class="text_center">
     <table style="width:100%">
-      <% @user.each do |user_data| %>
         <tr>
           <td> character_name: </td>
-          <td> <%= user_data.character_name %> </td>
+          <td> <%= @user.character_name %> </td>
         </tr>
         <tr>
           <td> character_id: </td>
-          <td> <%= user_data.character_id %> </td>
+          <td> <%= @user.character_id %> </td>
         </tr>
-      <% end %>
     </table>
   </div>
 </div>

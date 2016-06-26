@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  resources :fleet, only: %i(create show) do
+  resources :fleet, only: %i(create show new) do
     resource :participation, only: %i(create new show)
   end
 

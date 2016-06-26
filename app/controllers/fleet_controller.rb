@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 class FleetController < ApplicationController
+  def new
+  end
+
   def create
     fleet = Fleet.new(fleet_params)
 

@@ -29,6 +29,8 @@ gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'omniauth'
 gem 'omniauth-crest'
 
+gem 'cancancan'
+
 gem 'rest-client'
 gem 'mime-types'
 gem 'netrc'

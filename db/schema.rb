@@ -83,6 +83,10 @@ ActiveRecord::Schema.define(version: 20160623143511) do
   create_table "users", force: :cascade do |t|
     t.string  "character_name"
     t.integer "character_id"
+    t.string  "corporation_name"
+    t.integer "corporation_id"
+    t.string  "alliance_name"
+    t.integer "alliance_id"
   end
 
 end

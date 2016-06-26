@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class Fleet < ActiveRecord::Base
   belongs_to :user
+  belongs_to :alliance
   has_many :participations
 
   validates :name, :fc_name, :doctrin, :details, presence: true

@@ -4,6 +4,7 @@ class CreateFleets < ActiveRecord::Migration
     create_table :fleets do |t|
       t.timestamps null: false
       t.references :user
+      t.references :alliance
 
       t.string :name
       t.string :fc_name

@@ -5,6 +5,5 @@ FactoryGirl.define do
     fc_name 'fc_name'
     doctrin 'doctrin'
     details 'details'
-    duration 'duration'
   end
 end

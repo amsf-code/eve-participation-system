@@ -5,6 +5,7 @@ class FleetController < ApplicationController
 
   def create
     fleet = Fleet.new(fleet_params)
+    fleet.user_id = session[:user_id]
 
     if fleet.save
       redirect_to fleet_path(fleet)

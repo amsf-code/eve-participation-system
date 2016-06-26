@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :fleets
 
   def self.find_or_create_from_auth_hash(auth_hash)
     character_id = auth_hash["info"]["character_id"]

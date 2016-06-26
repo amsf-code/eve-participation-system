@@ -34,6 +34,10 @@ body { background-color: #1F1F1F; }
   margin-bottom: 6px;
 }
 
+.eve_login_link {
+  text-align: center;
+}
+
 .header {
   text-align: center;
   position: relative;

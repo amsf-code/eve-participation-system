@@ -21,6 +21,14 @@
   <div>
     <%= link_to "create new fleet", new_fleet_path %>
   </div>
-
-  Hier die Liste der gespeicherten Fleets
+  <table style="width:100%">
+      <th>fleet name</th>
+      <th>created</th>
+      <% @fleets.each do |fleet| %>
+        <tr>
+          <td> <%= link_to fleet.name, fleet_path(fleet) %> </td>
+          <td> <%= fleet.created_at %></td>
+        </tr>
+      <% end %>
+  </table>
 </div>

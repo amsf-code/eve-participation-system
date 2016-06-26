@@ -2,7 +2,7 @@
   <h1><%= @fleet.name %></h1>
 </div>
 
-<div class="show_fleet_created">
+<div class="box">
   <div class="text_left">
     <p> FC name: <%= @fleet.fc_name %> </p>
     <p> Backup: <%= @fleet.backup_fcs %> </p>
@@ -15,7 +15,7 @@
   </div>
 </div>
 
-<div class="show_fleet_created">
+<div class="box">
   <div class="text_left">
     <%= label_tag 'admin-url', 'Link to admin' %>
     <br>
@@ -28,7 +28,7 @@
   </div>
 </div>
 
-<div class="show_fleet_created">
+<div class="box">
   <div class="text_left">
     <% @fleet.participations.each do |participation| %>
       <tr>

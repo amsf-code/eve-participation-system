@@ -10,24 +10,22 @@
   <% end %>
 </div>
 
-<div class="submit_result">
+<div class="box">
   <div class="text_center">
-    <div class="fleet_name">
-      <%= @fleet.name %>
-    </div>
+    <h4><%= @fleet.name %></h4>
     <%= char_image_tag(@eve_character_info.id) %>
     <%= ship_image_tag(@eve_character_info.shiptypeid) %>
     <%= corp_image_tag(@eve_character_info.corpid) %>
-    <div class="location">
-      <% if @eve_character_info.stationid.present? %>
-        <%= "Docked in #{@eve_character_info.solarsystemid}" %>
-      <% else %>
-        <%= "Somewhere in #{@eve_character_info.solarsystemid}" %>
-      <% end %>
-    </div>
+
+    <% if @eve_character_info.stationid.present? %>
+      <%= "Docked in #{@eve_character_info.solarsystemid}" %>
+    <% else %>
+      <%= "Somewhere in #{@eve_character_info.solarsystemid}" %>
+    <% end %>
+
   </div>
 </div>
-<div class="submit_button">
+<div class="box">
   <% if !@participating %>
     <%= button_to 'Save participation!', fleet_participation_path(@fleet, Participation.new) %>
     <% end %>

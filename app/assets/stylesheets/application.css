@@ -16,45 +16,20 @@
 
 body { background-color: #1F1F1F; }
 
+.box {
+  background-color: #343434;
+  border-style: solid;
+  border-color: #262626;
+  border-width: 5px;
+  margin-left: 35%;
+  margin-right: 35%;
+}
+
 .header {
   text-align: center;
   position: relative;
   font-size: 1em;
   color: #FF6600;
-}
-
-.submit_fleet {
-  background-color: #343434;
-  border-style: solid;
-  border-color: #262626;
-  border-width: 5px;
-  margin-left: 35%;
-  margin-right: 35%;
-}
-
-.show_fleet_created {
-  background-color: #343434;
-  border-style: solid;
-  border-color: #262626;
-  border-width: 5px;
-  margin-left: 28.5%;
-  margin-right: 28.5%;
-  padding: 15px;
-}
-
-.submit_result {
-  background-color: #343434;
-  border-style: solid;
-  border-color: #262626;
-  border-width: 5px;
-  margin-left: 35%;
-  margin-right: 35%;
-  padding: 15px;
-}
-
-.submit_button {
-  text-align: center;
-  margin-top: 1%;
 }
 
 .text_left {
@@ -71,22 +46,6 @@ body { background-color: #1F1F1F; }
   margin-right: 6px;
   color: #DFDFDF;
   font-size: 1em;
-}
-
-.fleet_name {
-  text-align: center;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  color: #DFDFDF;
-  font-size: 1.2em;
-}
-
-.location {
-  text-align: center;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  color: #DFDFDF;
-  font-size: 1.2em;
 }
 
 .warning {

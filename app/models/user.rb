@@ -2,12 +2,12 @@ class User < ActiveRecord::Base
   has_many :fleets
 
   def self.find_or_create_from_auth_hash(auth_hash)
-    character_id = auth_hash["info"]["character_id"]
-    character_name = auth_hash["info"]["name"]
+    character_id = auth_hash['info']['character_id']
+    character_name = auth_hash['info']['name']
 
     user = User
-            .create_with(character_name: character_name)
-            .find_or_create_by(character_id: character_id)
+           .create_with(character_name: character_name)
+           .find_or_create_by(character_id: character_id)
   end
 
   def self.update_from_character_info(user_id, eve_character_info)
@@ -25,7 +25,8 @@ class User < ActiveRecord::Base
         corporation_id: corporation_id,
         corporation_name: corporation_name,
         alliance_id: alliance_id,
-        alliance_name: alliance_name)
+        alliance_name: alliance_name
+      )
     end
   end
 end

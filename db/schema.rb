@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623143511) do
+ActiveRecord::Schema.define(version: 20160627172455) do
 
   create_table "alliances", force: :cascade do |t|
     t.string   "eve_allianceid"
@@ -46,36 +46,36 @@ ActiveRecord::Schema.define(version: 20160623143511) do
   add_index "corporations", ["eve_corpid"], name: "index_corporations_on_eve_corpid", unique: true
 
   create_table "fleets", force: :cascade do |t|
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
     t.integer  "user_id"
     t.integer  "alliance_id"
+    t.string   "crest_fleet_id"
     t.string   "name"
     t.string   "fc_name"
-    t.text     "backup_fcs"
-    t.text     "fleet_booster"
-    t.text     "doctrin"
+    t.string   "fc_id"
+    t.string   "wing_booster_name"
+    t.string   "wing_booster_id"
+    t.string   "doctrin"
+    t.string   "reason"
     t.text     "details"
+    t.string   "pilot_count"
     t.datetime "started_at"
     t.datetime "ended_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "participations", force: :cascade do |t|
     t.integer  "fleet_id"
     t.string   "eve_charid"
     t.string   "eve_charname"
-    t.string   "eve_corpid"
-    t.string   "eve_corpname"
-    t.string   "eve_allianceid"
-    t.string   "eve_alliancename"
     t.string   "eve_shiptypeid"
     t.string   "eve_shiptypename"
     t.string   "eve_solarsystemid"
+    t.string   "eve_solarsystemname"
     t.string   "eve_stationid"
-    t.string   "eve_constellationid"
-    t.string   "eve_constellationname"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.string   "eve_stationname"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   add_index "participations", ["fleet_id", "eve_charid"], name: "index_participations_on_fleet_id_and_eve_charid", unique: true

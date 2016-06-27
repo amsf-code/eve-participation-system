@@ -4,11 +4,13 @@
 
 <div class="box">
   <div class="text_left">
+    <p> Crest fleet id: <%= @fleet.crest_fleet_id %> </p>
     <p> FC name: <%= @fleet.fc_name %> </p>
-    <p> Backup: <%= @fleet.backup_fcs %> </p>
-    <p> Booster: <%= @fleet.fleet_booster %> </p>
+    <p> Wing booster: <%= @fleet.wing_booster_name %> </p>
     <p> Doctrin: <%= @fleet.doctrin %> </p>
+    <p> Reason: <%= @fleet.reason %> </p>
     <p> Details: <%= @fleet.details %> </p>
+    <p> Pilot count: <%= @fleet.pilot_count %> </p>
     <p> Fleet started at: <%= @fleet.started_at %> </p>
     <p> Fleet ended at: <%= @fleet.ended_at %> </p>
     <p> Created: <%= @fleet.created_at %> </p>
@@ -21,10 +23,6 @@
     <br>
     <%= text_field_tag 'admin_url', fleet_url, size: 100 %>
     <br>
-    <br>
-    <%= label_tag 'player-url', 'Player link' %>
-    <br>
-    <%= text_field_tag 'player_url', new_fleet_participation_url(@fleet), size: 100 %>
   </div>
 </div>
 

@@ -24,6 +24,6 @@ class FleetController < ApplicationController
   private
 
   def fleet_params
-    params.require(:fleet).permit(:name, :fc_name, :backup_fcs, :fleet_booster, :doctrin, :details, :started_at, :ended_at)
+    params.require(:fleet).permit(:crest_fleet_id, :name, :doctrin, :reason, :details, :started_at, :ended_at)
   end
 end

@@ -6,23 +6,13 @@
 
     <%= form_for :fleet, url: fleet_index_path do |f| %>
       <p>
+        <%= f.label :"crest fleet link" %><br>
+        <%= f.text_field :crest_fleet_id %>
+      </p>
+
+      <p>
         <%= f.label :"fleet name" %><br>
         <%= f.text_field :name %>
-      </p>
-
-      <p>
-        <%= f.label :"fleet commander name" %><br>
-        <%= f.text_field :fc_name %>
-      </p>
-
-      <p>
-        <%= f.label :"backup fleet commander" %><br>
-        <%= f.text_area :backup_fcs, size: "15x2" %>
-      </p>
-
-      <p>
-        <%= f.label :"fleet booster" %><br>
-        <%= f.text_area :fleet_booster, size: "15x5" %>
       </p>
 
       <p>
@@ -31,17 +21,22 @@
       </p>
 
       <p>
+        <%= f.label :"reason" %><br>
+        <%= f.select :reason, options_for_select(['CTA', 'StratOp', 'HomeDefense', 'Mining', 'MoveOp', 'Other']) %>
+      </p>
+
+      <p>
         <%= f.label :"details" %><br>
         <%= f.text_field :details %>
       </p>
 
       <p>
-        <%= f.label :"started_at" %><br>
+        <%= f.label :"started at" %><br>
         <%= f.datetime_select :started_at, min: Date.today %>
       </p>
 
       <p>
-        <%= f.label :"ended_at" %><br>
+        <%= f.label :"ended at" %><br>
         <%= f.datetime_select :ended_at, min: Date.today %>
       </p>
 

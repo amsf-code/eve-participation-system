@@ -4,7 +4,7 @@ class Fleet < ActiveRecord::Base
   belongs_to :alliance
   has_many :participations
 
-  validates :name, :fc_name, :doctrin, :details, presence: true
+  validates :crest_fleet_id, :name, :doctrin, :details, presence: true
 
   validate :started_at_date, :ended_at_date
 
@@ -18,13 +18,5 @@ class Fleet < ActiveRecord::Base
     if ended_at < started_at
       errors.add(:ended_at, "can't be in the past before the fleet Started at")
     end
-  end
-
-  def participating?(eve_charid)
-    participations.find_by(eve_charid: eve_charid).present?
-  end
-
-  def expired?
-    created_at < 20.minutes.ago
   end
 end

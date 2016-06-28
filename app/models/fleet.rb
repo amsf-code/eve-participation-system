@@ -4,7 +4,7 @@ class Fleet < ActiveRecord::Base
   belongs_to :alliance
   has_many :participations
 
-  validates :crest_fleet_id, :name, :doctrin, :details, presence: true
+  validates :eve_fleet_id, :name, :doctrin, :details, presence: true
 
   validate :started_at_date, :ended_at_date
 

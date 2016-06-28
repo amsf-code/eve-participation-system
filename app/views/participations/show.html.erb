@@ -5,15 +5,5 @@
 <div class="box">
   <div class="text_center">
     <h4><%= @fleet.name %></h4>
-    <%= char_image_tag(@eve_character_info.id) %>
-    <%= ship_image_tag(@eve_character_info.shiptypeid) %>
-    <%= corp_image_tag(@eve_character_info.corpid) %>
-
-    <% if @eve_character_info.stationid.present? %>
-      <%= "Docked in #{@eve_character_info.solarsystemid}" %>
-    <% else %>
-      <%= "Somewhere in #{@eve_character_info.solarsystemid}" %>
-    <% end %>
-
   </div>
 </div>

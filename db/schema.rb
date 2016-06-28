@@ -14,79 +14,83 @@
 ActiveRecord::Schema.define(version: 20160627172455) do
 
   create_table "alliances", force: :cascade do |t|
-    t.string   "eve_allianceid"
-    t.string   "eve_alliancename"
+    t.string   "alliance_name"
+    t.string   "alliance_id"
+    t.string   "active"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "alliances", ["alliance_id"], name: "index_alliances_on_alliance_id", unique: true
+
+  create_table "characters", force: :cascade do |t|
+    t.integer  "corporation_id"
+    t.integer  "alliance_id"
+    t.string   "character_name"
+    t.string   "character_id"
+    t.string   "corporation_name"
     t.string   "active"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
-  add_index "alliances", ["eve_allianceid"], name: "index_alliances_on_eve_allianceid", unique: true
-
-  create_table "characters", force: :cascade do |t|
-    t.string   "eve_charid"
-    t.string   "eve_charname"
-    t.string   "eve_corpid"
-    t.string   "eve_allianceid"
-    t.string   "active"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  add_index "characters", ["eve_charid"], name: "index_characters_on_eve_charid", unique: true
+  add_index "characters", ["character_id"], name: "index_characters_on_character_id", unique: true
 
   create_table "corporations", force: :cascade do |t|
-    t.string   "eve_corpid"
-    t.string   "eve_corpname"
+    t.integer  "alliance_id"
+    t.string   "corporation_name"
+    t.string   "corporation_id"
     t.string   "active"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
-  add_index "corporations", ["eve_corpid"], name: "index_corporations_on_eve_corpid", unique: true
+  add_index "corporations", ["corporation_id"], name: "index_corporations_on_corporation_id", unique: true
 
   create_table "fleets", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "alliance_id"
-    t.string   "crest_fleet_id"
-    t.string   "name"
+    t.string   "eve_fleet_id"
+    t.text     "name"
     t.string   "fc_name"
     t.string   "fc_id"
-    t.string   "wing_booster_name"
-    t.string   "wing_booster_id"
     t.string   "doctrin"
     t.string   "reason"
     t.text     "details"
     t.string   "pilot_count"
     t.datetime "started_at"
     t.datetime "ended_at"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "participations", force: :cascade do |t|
     t.integer  "fleet_id"
-    t.string   "eve_charid"
-    t.string   "eve_charname"
-    t.string   "eve_shiptypeid"
-    t.string   "eve_shiptypename"
-    t.string   "eve_solarsystemid"
-    t.string   "eve_solarsystemname"
-    t.string   "eve_stationid"
-    t.string   "eve_stationname"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.string   "character_name"
+    t.string   "character_id"
+    t.string   "ship_name"
+    t.string   "ship_id"
+    t.string   "solarsystem_name"
+    t.string   "solarsystem_id"
+    t.string   "station_name"
+    t.string   "station_id"
+    t.string   "fc"
+    t.string   "wing_booster"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
-  add_index "participations", ["fleet_id", "eve_charid"], name: "index_participations_on_fleet_id_and_eve_charid", unique: true
+  add_index "participations", ["fleet_id", "character_id"], name: "index_participations_on_fleet_id_and_character_id", unique: true
 
   create_table "users", force: :cascade do |t|
-    t.string  "character_name"
-    t.integer "character_id"
-    t.string  "corporation_name"
-    t.integer "corporation_id"
-    t.string  "alliance_name"
-    t.integer "alliance_id"
+    t.string   "character_name"
+    t.string   "character_id"
+    t.string   "corporation_name"
+    t.string   "corporation_id"
+    t.string   "alliance_name"
+    t.string   "alliance_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end

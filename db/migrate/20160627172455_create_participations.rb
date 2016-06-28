@@ -4,21 +4,25 @@ class CreateParticipations < ActiveRecord::Migration
     create_table :participations do |t|
       t.references :fleet
 
-      t.string :eve_charid
-      t.string :eve_charname
+      t.string :character_name
+      t.string :character_id
 
-      t.string :eve_shiptypeid
-      t.string :eve_shiptypename
+      t.string :ship_name
+      t.string :ship_id
 
-      t.string :eve_solarsystemid
-      t.string :eve_solarsystemname
+      t.string :solarsystem_name
+      t.string :solarsystem_id
 
-      t.string :eve_stationid
-      t.string :eve_stationname
+      t.string :station_name
+      t.string :station_id
+
+      t.string :fc
+      
+      t.string :wing_booster
 
       t.timestamps null: false
     end
 
-    add_index :participations, %i(fleet_id eve_charid), unique: true
+    add_index :participations, %i(fleet_id character_id), unique: true
   end
 end

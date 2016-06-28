@@ -1,15 +1,16 @@
 class CreateCorporations < ActiveRecord::Migration
   def change
     create_table :corporations do |t|
+      t.references :alliance
 
-      t.string :eve_corpid
-      t.string :eve_corpname
+      t.string :corporation_name
+      t.string :corporation_id
 
       t.string :active
 
       t.timestamps null: false
     end
 
-    add_index :corporations, %i(eve_corpid), unique: true
+    add_index :corporations, %i(corporation_id), unique: true
   end
 end

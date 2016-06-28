@@ -4,17 +4,18 @@
 
 <div class="box">
   <div class="text_left">
-    <p> Crest fleet id: <%= @fleet.crest_fleet_id %> </p>
-    <p> FC name: <%= @fleet.fc_name %> </p>
-    <p> Wing booster: <%= @fleet.wing_booster_name %> </p>
+    <p> EVE fleet id: <%= @fleet.eve_fleet_id %> </p>
+    <p> Fleet name: <%= @fleet.name %> </p>
+    <p> FC: <%= @fleet.fc_name %> </p>
     <p> Doctrin: <%= @fleet.doctrin %> </p>
     <p> Reason: <%= @fleet.reason %> </p>
     <p> Details: <%= @fleet.details %> </p>
-    <p> Pilot count: <%= @fleet.pilot_count %> </p>
+    <p> Pilots: <%= @fleet.pilot_count %> </p>
     <p> Fleet started at: <%= @fleet.started_at %> </p>
     <p> Fleet ended at: <%= @fleet.ended_at %> </p>
     <p> Created: <%= @fleet.created_at %> </p>
   </div>
+  <%= button_to 'Save', fleet_participation_path(@fleet) %>
 </div>
 
 <div class="box">
@@ -30,8 +31,8 @@
   <div class="text_left">
     <% @fleet.participations.each do |participation| %>
       <tr>
-        <td><%= participation.eve_charname %></td>
-        <td><%= participation.eve_shiptypename %></td>
+        <td><%= participation.character_name %></td>
+        <td><%= participation.ship_name %></td>
       </tr>
       <br>
     <% end %>

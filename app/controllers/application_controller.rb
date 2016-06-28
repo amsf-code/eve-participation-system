@@ -7,10 +7,4 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find_by(session[:user_id])
   end
-
-  protected
-
-  def eve_character_info
-    @eve_character_info ||= EVECharacterInfo.from_ingame_headers(request.headers)
-  end
 end

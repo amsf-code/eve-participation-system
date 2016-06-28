@@ -4,16 +4,13 @@ class CreateFleets < ActiveRecord::Migration
     create_table :fleets do |t|
       t.references :user
       t.references :alliance
-      
-      t.string :crest_fleet_id
 
-      t.string :name
+      t.string :eve_fleet_id
+
+      t.text :name
 
       t.string :fc_name
       t.string :fc_id
-
-      t.string :wing_booster_name
-      t.string :wing_booster_id
 
       t.string :doctrin
 

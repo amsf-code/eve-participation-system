@@ -5,18 +5,39 @@ class ParticipationsController < ApplicationController
   def show
   end
 
-  def new
-    @participating = @fleet.participating?(eve_character_info.id)
-    @expired = @fleet.expired?
-  end
-
   def create
-    if @fleet.participating?(eve_character_info.id) || @fleet.expired?
-      render :show
-    else
-      @fleet.participations << Participation.build_from_eve_headers(eve_character_info)
-      redirect_to fleet_participation_path(@fleet)
+    fleet_informations = EveCrest.fleet_members(@fleet.eve_fleet_id, session[:user_token])
+
+    if fleet_informations.present?
+      fleet_informations['items'].each do |item|
+        participation = Participation.new
+        participation.fleet_id = @fleet.id
+
+        participation.character_name = item['character']['name']
+        participation.character_id = item['character']['id_str']
+
+        participation.ship_name = item['ship']['name']
+        participation.ship_id = item['ship']['id_str']
+
+        participation.solarsystem_name = item['solarSystem']['name']
+        participation.solarsystem_id = item['solarSystem']['id_str']
+
+        if item['station'].present?
+          participation.station_name = item['station']['name']
+          participation.station_id = item['station']['id_str']
+        end
+
+        if item['roleName'].include?('Boss')
+          participation.fc = '1'
+        end
+
+        if item['boosterName'] == 'Wing Booster'
+          participation.wing_booster = '1'
+        end
+        participation.save
+      end
     end
+    redirect_to user_path(id: session[:user_id])
   end
 
   private

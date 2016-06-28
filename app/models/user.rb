@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class User < ActiveRecord::Base
   has_many :fleets
 
@@ -12,7 +13,7 @@ class User < ActiveRecord::Base
 
   def self.update_from_character_info(user_id, eve_character_info)
     corporation_name = eve_character_info['corporation']['name']
-    corporation_id = eve_character_info['corporation']['id']
+    corporation_id = eve_character_info['corporation']['id_str']
 
     user = User.find(user_id)
 
@@ -20,7 +21,7 @@ class User < ActiveRecord::Base
       user.update(corporation_id: corporation_id, corporation_name: corporation_name)
     else
       alliance_name = eve_character_info['alliance']['name']
-      alliance_id = eve_character_info['alliance']['id']
+      alliance_id = eve_character_info['alliance']['id_str']
       user.update(
         corporation_id: corporation_id,
         corporation_name: corporation_name,

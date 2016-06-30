@@ -15,77 +15,7 @@
     <p> Fleet ended at: <%= @fleet.ended_at %> </p>
     <p> Created at: <%= @fleet.created_at %> </p>
   </div>
-  <%= button_to 'Save', fleet_participation_path(@fleet) %>
-</div>
-
-<div class="box-table">
-  <div class="box-header">FC:</div>
-  <div class="table">
-    <table>
-      <tr>
-        <th> Character: </th>
-        <th> Ship: </th>
-        <th> Solarsystem:</th>
-        <th> Sation: </th>
-      </tr>
-      <% @fleet.participations.each do |participation| %>
-        <% if participation.fc == '1' %>
-          <tr>
-            <td width="5%"><%= participation.character_name %></td>
-            <td width="5%"><%= participation.ship_name %></td>
-            <td width="5%"><%= system_link_to(participation.solarsystem_name) %></td>
-            <td width="15%"><%= participation.station_name %></td>
-          </tr>
-        <% end %>
-      <% end %>
-    </table>
-  </div>
-</div>
-
-<div class="box-table">
-  <div class="box-header">Boosters:</div>
-  <div class="table">
-    <table>
-      <tr>
-        <th> Character: </th>
-        <th> Ship: </th>
-        <th> Solarsystem: </th>
-        <th> Sation: </th>
-      </tr>
-      <% @fleet.participations.each do |participation| %>
-        <% if participation.wing_booster == '1' %>
-          <tr>
-            <td width="5%"><%= participation.character_name %></td>
-            <td width="5%"><%= participation.ship_name %></td>
-            <td width="5%"><%= system_link_to(participation.solarsystem_name) %></td>
-            <td width="15%"><%= participation.station_name %></td>
-          </tr>
-        <% end %>
-      <% end %>
-    </table>
-  </div>
-</div>
-
-<div class="box-table">
-  <div class="box-header">Pilots:</div>
-  <div class="table">
-    <table>
-      <tr>
-        <th> Character: </th>
-        <th> Ship: </th>
-        <th> Solarsystem: </th>
-        <th> Sation: </th>
-      </tr>
-      <% @fleet.participations.each do |participation| %>
-        <% if participation.wing_booster.nil? && participation.fc.nil? %>
-          <tr>
-            <td width="5%"><%= participation.character_name %></td>
-            <td width="5%"><%= participation.ship_name %></td>
-            <td width="5%"><%= system_link_to(participation.solarsystem_name) %></td>
-            <td width="15%"><%= participation.station_name %></td>
-          </tr>
-        <% end %>
-      <% end %>
-    </table>
+  <div class="text-center">
+    <%= button_to 'Save fleet participations!', fleet_participation_path(@fleet) %>
   </div>
 </div>

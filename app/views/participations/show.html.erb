@@ -1,9 +1,89 @@
 <div class="header">
-  <h1>Participation saved!</h1>
+  <h1><%= @fleet.name %></h1>
 </div>
 
-<div class="box">
-  <div class="text_center">
-    <h4><%= @fleet.name %></h4>
+<div class="box-table">
+  <div class="box-header">Fleet details:</div>
+  <div class="text-left">
+    <p> FC: <%= @fleet.fc_name %> </p>
+    <p> Doctrin: <%= @fleet.doctrin %> </p>
+    <p> Reason: <%= @fleet.reason %> </p>
+    <p> Details: <%= @fleet.details %> </p>
+    <p> Pilots: <%= @fleet.pilot_count %> </p>
+    <p> Fleet started at: <%= @fleet.started_at %> </p>
+    <p> Fleet ended at: <%= @fleet.ended_at %> </p>
+    <p> Created at: <%= @fleet.created_at %> </p>
+  </div>
+</div>
+
+<div class="box-table">
+  <div class="box-header">FC:</div>
+  <div class="table">
+    <table>
+      <tr>
+        <th> Character: </th>
+        <th> Ship: </th>
+        <th> Solarsystem:</th>
+        <th> Station: </th>
+      </tr>
+      <% @fleet.participations.each do |participation| %>
+        <% if participation.fc == '1' %>
+          <tr>
+            <td width="5%"><%= participation.character_name %></td>
+            <td width="5%"><%= participation.ship_name %></td>
+            <td width="5%"><%= system_link_to(participation.solarsystem_name) %></td>
+            <td width="15%"><%= participation.station_name %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div class="box-table">
+  <div class="box-header">Boosters:</div>
+  <div class="table">
+    <table>
+      <tr>
+        <th> Character: </th>
+        <th> Ship: </th>
+        <th> Solarsystem: </th>
+        <th> Station: </th>
+      </tr>
+      <% @fleet.participations.each do |participation| %>
+        <% if participation.wing_booster == '1' %>
+          <tr>
+            <td width="5%"><%= participation.character_name %></td>
+            <td width="5%"><%= participation.ship_name %></td>
+            <td width="5%"><%= system_link_to(participation.solarsystem_name) %></td>
+            <td width="15%"><%= participation.station_name %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div class="box-table">
+  <div class="box-header">Pilots:</div>
+  <div class="table">
+    <table>
+      <tr>
+        <th> Character: </th>
+        <th> Ship: </th>
+        <th> Solarsystem: </th>
+        <th> Station: </th>
+      </tr>
+      <% @fleet.participations.each do |participation| %>
+        <% if participation.wing_booster.nil? && participation.fc.nil? %>
+          <tr>
+            <td width="5%"><%= participation.character_name %></td>
+            <td width="5%"><%= participation.ship_name %></td>
+            <td width="5%"><%= system_link_to(participation.solarsystem_name) %></td>
+            <td width="15%"><%= participation.station_name %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
   </div>
 </div>

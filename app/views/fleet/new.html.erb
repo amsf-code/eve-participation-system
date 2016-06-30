@@ -1,5 +1,5 @@
 <div class="box">
-  <div class="text_center">
+  <div class="text-center">
     <div class="warning">
       <%= flash[:input_missing] %>
     </div>
@@ -7,12 +7,12 @@
     <%= form_for :fleet, url: fleet_index_path do |f| %>
       <p>
         <%= f.label :"external fleet link" %><br>
-        <%= f.text_field :eve_fleet_id %>
+        <%= f.text_field :eve_fleet_id, class: "input-box" %>
       </p>
 
       <p>
         <%= f.label :"fleet name" %><br>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: "input-box" %>
       </p>
 
       <p>
@@ -27,7 +27,7 @@
 
       <p>
         <%= f.label :"details" %><br>
-        <%= f.text_field :details %>
+        <%= f.text_field :details, class: "input-box" %>
       </p>
 
       <p>

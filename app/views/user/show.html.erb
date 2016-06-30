@@ -1,15 +1,15 @@
 <div class="box">
   <div class="box-header">Character</div>
-  <div class="text_center">
-    <table style="width:100%">
+  <div class="table">
+    <table>
         <tr>
           <td><%= char_image_tag(@user.character_id) %></td>
-          <td>Platzhalter Corp Bild</td>
+          <td><%= corp_image_tag(@user.corporation_id) %></td>
           <td>Platzhalter Allianz Bild</td>
         </tr>
         <tr>
           <td><%= @user.character_name %></td>
-          <td>Platzhalter Corp Name</td>
+          <td><%= @user.corporation_name %></td>
           <td>Platzhalter Allianz Name</td>
         </tr>
     </table>
@@ -21,9 +21,12 @@
   <div class="link">
     <%= link_to "create new fleet", new_fleet_path %>
   </div>
+  <div class="table">
   <table style="width:100%">
+    <tr>
       <th>fleet name</th>
       <th>created</th>
+    </tr>
       <% @fleets.each do |fleet| %>
         <tr>
           <td> <%= link_to fleet.name, fleet_path(fleet) %> </td>
@@ -31,4 +34,5 @@
         </tr>
       <% end %>
   </table>
+  </div>
 </div>

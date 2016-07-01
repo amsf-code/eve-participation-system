@@ -1,0 +1,24 @@
+<div class="box-table">
+  <div class="box-header">Alliance</div>
+  <div class="text-left">
+    <p> Alliance name: <%= @alliance.name %> </p>
+    <p> Ticker: <%= @alliance.short_name %> </p>
+    <p> Alliance id: <%= @alliance.alliance_id%> </p>
+    <p> Created at: <%= @alliance.created_at %> </p>
+  </div>
+</div>
+
+<div class="box-table">
+  <div class="box-header">Corporations</div>
+  <div class="table">
+    <table style="width:100%">
+      <table>
+        <% @alliance.corporations.each do |corporation| %>
+          <tr>
+            <td><%= corporation.name %></td>
+          </tr>
+          <% end %>
+      </table>
+    </div>
+  </div>
+</div>

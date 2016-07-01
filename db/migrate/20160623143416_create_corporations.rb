@@ -3,10 +3,8 @@ class CreateCorporations < ActiveRecord::Migration
     create_table :corporations do |t|
       t.references :alliance
 
-      t.string :corporation_name
+      t.string :name
       t.string :corporation_id
-
-      t.string :active
 
       t.timestamps null: false
     end

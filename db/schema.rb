@@ -14,11 +14,11 @@
 ActiveRecord::Schema.define(version: 20160627172455) do
 
   create_table "alliances", force: :cascade do |t|
-    t.string   "alliance_name"
+    t.string   "name"
+    t.string   "short_name"
     t.string   "alliance_id"
-    t.string   "active"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "alliances", ["alliance_id"], name: "index_alliances_on_alliance_id", unique: true
@@ -26,10 +26,9 @@ ActiveRecord::Schema.define(version: 20160627172455) do
   create_table "characters", force: :cascade do |t|
     t.integer  "corporation_id"
     t.integer  "alliance_id"
-    t.string   "character_name"
+    t.string   "name"
     t.string   "character_id"
     t.string   "corporation_name"
-    t.string   "active"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
@@ -38,11 +37,10 @@ ActiveRecord::Schema.define(version: 20160627172455) do
 
   create_table "corporations", force: :cascade do |t|
     t.integer  "alliance_id"
-    t.string   "corporation_name"
+    t.string   "name"
     t.string   "corporation_id"
-    t.string   "active"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "corporations", ["corporation_id"], name: "index_corporations_on_corporation_id", unique: true

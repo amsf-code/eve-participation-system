@@ -36,3 +36,19 @@
   </table>
   </div>
 </div>
+
+<div class="box">
+  <div class="box-header">Alliance</div>
+  <div class="link">
+    <%= link_to "add alliance", new_alliance_path %>
+  </div>
+  <div class="table">
+    <table style="width:100%">
+      <% @alliances.each do |alliance| %>
+        <tr>
+          <td> <%= link_to alliance.name, alliance_corporation_path(alliance, :corporations) %> </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

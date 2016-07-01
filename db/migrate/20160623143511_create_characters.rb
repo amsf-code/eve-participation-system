@@ -4,12 +4,10 @@ class CreateCharacters < ActiveRecord::Migration
       t.references :corporation
       t.references :alliance
 
-      t.string :character_name
+      t.string :name
       t.string :character_id
 
       t.string :corporation_name
-
-      t.string :active
 
       t.timestamps null: false
     end

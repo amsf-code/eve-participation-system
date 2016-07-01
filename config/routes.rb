@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :user, only: %i(show)
 
+  resources :alliance, only: %i(create show new) do
+    resources :corporation, only: %i(create show)
+  end
+
   root 'home#index'
 
   get '/auth/crest/callback', to: 'sessions#create'

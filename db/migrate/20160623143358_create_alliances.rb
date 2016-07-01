@@ -1,10 +1,10 @@
 class CreateAlliances < ActiveRecord::Migration
   def change
     create_table :alliances do |t|
-      t.string :alliance_name
+      t.string :name
+      t.string :short_name
+      
       t.string :alliance_id
-
-      t.string :active
 
       t.timestamps null: false
     end

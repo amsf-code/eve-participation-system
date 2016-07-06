@@ -6,8 +6,6 @@ class AllianceController < ApplicationController
   end
 
   def create
-    alliance_name = params[:alliance][:name]
-
     alliance = Alliance.new(alliance_params)
 
     alliances_informations = EveCrest.alliances
@@ -15,7 +13,7 @@ class AllianceController < ApplicationController
     input_name = ''
 
     alliances_informations['items'].each do |item|
-      next unless item['name'].eql?(alliance_name)
+      next unless item['name'].eql?(alliance_params[:name])
       input_name = item['name']
       alliance.name = item['name']
       alliance.short_name = item['shortName']
@@ -26,10 +24,10 @@ class AllianceController < ApplicationController
 
     page = 2
 
-    until page == page_count || input_name.eql?(alliance_name)
+    until page == page_count || input_name.eql?(alliance_params[:name])
       alliances_informations = EveCrest.alliances_page(page)
       alliances_informations['items'].each do |item|
-        next unless item['name'].eql?(alliance_name)
+        next unless item['name'].eql?(alliance_params[:name])
         input_name = item['name']
         alliance.name = item['name']
         alliance.short_name = item['shortName']

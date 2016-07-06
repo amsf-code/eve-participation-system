@@ -16,9 +16,9 @@ class CreateParticipations < ActiveRecord::Migration
       t.string :station_name
       t.string :station_id
 
-      t.string :fc
-      
-      t.string :wing_booster
+      t.boolean :fc
+
+      t.boolean :wing_booster
 
       t.timestamps null: false
     end

@@ -30,7 +30,7 @@
       <% @fleets.each do |fleet| %>
         <tr>
           <td> <%= link_to fleet.name, fleet_participation_path(fleet) %> </td>
-          <td> <%= fleet.created_at %></td>
+          <td> <%= fleet.created_at %> </td>
         </tr>
       <% end %>
   </table>
@@ -46,7 +46,7 @@
     <table style="width:100%">
       <% @alliances.each do |alliance| %>
         <tr>
-          <td> <%= link_to alliance.name, alliance_corporation_path(alliance, :corporations) %> </td>
+          <td> <%= link_to alliance.name, alliance_path(alliance) %> </td>
         </tr>
       <% end %>
     </table>

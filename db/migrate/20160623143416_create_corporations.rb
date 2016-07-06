@@ -5,6 +5,7 @@ class CreateCorporations < ActiveRecord::Migration
 
       t.string :name
       t.string :corporation_id
+      t.string :member_count
 
       t.timestamps null: false
     end

@@ -14,3 +14,18 @@
     <%= button_to 'Save alliance!', alliance_corporation_index_path(@alliance) %>
   </div>
 </div>
+
+<div class="box-table">
+  <div class="box-header">Corporations</div>
+  <div class="table">
+    <table style="width:100%">
+      <table>
+        <% @alliance.corporations.each do |corporation| %>
+          <tr>
+            <td><%= corporation.name %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

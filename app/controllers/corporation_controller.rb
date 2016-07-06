@@ -11,7 +11,6 @@ class CorporationController < ApplicationController
     alliance_informations['corporations'].each do |corporation_infos|
       corporation = Corporation.new
       corporation.alliance_id = @alliance.id
-
       corporation.name = corporation_infos['name']
       corporation.corporation_id = corporation_infos['id_str']
 

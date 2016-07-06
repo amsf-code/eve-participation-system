@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160627172455) do
     t.integer  "alliance_id"
     t.string   "name"
     t.string   "corporation_id"
+    t.string   "member_count"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -72,8 +73,8 @@ ActiveRecord::Schema.define(version: 20160627172455) do
     t.string   "solarsystem_id"
     t.string   "station_name"
     t.string   "station_id"
-    t.string   "fc"
-    t.string   "wing_booster"
+    t.boolean  "fc"
+    t.boolean  "wing_booster"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

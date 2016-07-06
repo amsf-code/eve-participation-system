@@ -28,11 +28,11 @@ class ParticipationsController < ApplicationController
         end
 
         if item['roleName'].include?('Boss')
-          participation.fc = '1'
+          participation.fc = true
         end
 
         if item['boosterName'] == 'Wing Booster'
-          participation.wing_booster = '1'
+          participation.wing_booster = true
         end
         participation.save
       end

@@ -27,7 +27,7 @@
         <th> Station: </th>
       </tr>
       <% @fleet.participations.each do |participation| %>
-        <% if participation.fc == '1' %>
+        <% if participation.fc == true %>
           <tr>
             <td width="5%"><%= participation.character_name %></td>
             <td width="5%"><%= participation.ship_name %></td>
@@ -51,7 +51,7 @@
         <th> Station: </th>
       </tr>
       <% @fleet.participations.each do |participation| %>
-        <% if participation.wing_booster == '1' %>
+        <% if participation.wing_booster == true %>
           <tr>
             <td width="5%"><%= participation.character_name %></td>
             <td width="5%"><%= participation.ship_name %></td>

@@ -46,6 +46,8 @@
     <table style="width:100%">
       <% @alliances.each do |alliance| %>
         <tr>
+          <td> <%= ally_image_tag(alliance.alliance_id, '64') %> </td>
+          <td> <%= alliance.short_name %> </td>
           <td> <%= link_to alliance.name, alliance_path(alliance) %> </td>
         </tr>
       <% end %>

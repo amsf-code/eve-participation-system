@@ -1,5 +1,5 @@
 <div class="header">
-  <h1><%= @alliance.name %></h1>
+  <h1><%= ally_image_tag(@alliance.alliance_id, '128') %></h1>
 </div>
 
 <div class="box-table">
@@ -7,8 +7,7 @@
   <div class="text-left">
     <p> Alliance name: <%= @alliance.name %> </p>
     <p> Ticker: <%= @alliance.short_name %> </p>
-    <p> Alliance id: <%= @alliance.alliance_id%> </p>
-    <p> Created at: <%= @alliance.created_at %> </p>
+    <p> Added at: <%= @alliance.created_at %> </p>
   </div>
   <div class="text-center">
     <%= button_to 'Save alliance!', alliance_corporation_index_path(@alliance) %>
@@ -20,9 +19,18 @@
   <div class="table">
     <table style="width:100%">
       <table>
-        <% @alliance.corporations.each do |corporation| %>
+        <tr>
+          <th> Logo </th>
+          <th> Ticker </th>
+          <th> Name </th>
+          <th> Membercount </th>
+        </tr>
+        <% @alliance.corporations.order('name ASC').each do |corporation| %>
           <tr>
+            <td><%= corp_image_tag(corporation.corporation_id) %></td>
+            <td><%= corporation.ticker %></td>
             <td><%= corporation.name %></td>
+            <td><%= corporation.member_count %></td>
           </tr>
         <% end %>
       </table>

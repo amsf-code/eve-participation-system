@@ -15,4 +15,8 @@ module ApplicationHelper
   def system_link_to(system_name)
     link_to("#{system_name}", 'http://evemaps.dotlan.net/system/' + system_name)
   end
+
+  def ally_image_tag(ally_id, size)
+    image_tag 'https://image.eveonline.com/Alliance/' + ally_id + '_' + size + '.png'
+  end
 end

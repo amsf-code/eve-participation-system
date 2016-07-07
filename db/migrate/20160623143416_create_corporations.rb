@@ -4,7 +4,10 @@ class CreateCorporations < ActiveRecord::Migration
       t.references :alliance
 
       t.string :name
+      t.string :ticker
+
       t.string :corporation_id
+      
       t.string :member_count
 
       t.timestamps null: false

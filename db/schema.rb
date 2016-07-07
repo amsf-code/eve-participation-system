@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160627172455) do
   create_table "corporations", force: :cascade do |t|
     t.integer  "alliance_id"
     t.string   "name"
+    t.string   "ticker"
     t.string   "corporation_id"
     t.string   "member_count"
     t.datetime "created_at",     null: false

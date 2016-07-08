@@ -17,7 +17,7 @@ class AllianceController < ApplicationController
       input_name = item['name']
       alliance.name = item['name']
       alliance.short_name = item['shortName']
-      alliance.alliance_id = item['id_str']
+      alliance.alliance_id = item['id']
     end
 
     page_count = alliances_informations['pageCount'] + 1
@@ -31,7 +31,7 @@ class AllianceController < ApplicationController
         input_name = item['name']
         alliance.name = item['name']
         alliance.short_name = item['shortName']
-        alliance.alliance_id = item['id_str']
+        alliance.alliance_id = item['id']
       end
       page += 1
     end

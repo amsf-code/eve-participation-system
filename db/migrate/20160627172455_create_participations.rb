@@ -5,16 +5,16 @@ class CreateParticipations < ActiveRecord::Migration
       t.references :fleet
 
       t.string :character_name
-      t.string :character_id
+      t.integer :character_id
 
       t.string :ship_name
-      t.string :ship_id
+      t.integer :ship_id
 
       t.string :solarsystem_name
-      t.string :solarsystem_id
+      t.integer :solarsystem_id
 
       t.string :station_name
-      t.string :station_id
+      t.integer :station_id
 
       t.boolean :fc
 

@@ -14,12 +14,12 @@ class FleetController < ApplicationController
     fleet_informations = EveCrest.fleet_members(fleet_params[:eve_fleet_id][/\d+/], session[:user_token])
 
     if fleet_informations.present?
-      fleet.pilot_count = fleet_informations['totalCount_str']
+      fleet.pilot_count = fleet_informations['totalCount']
 
       fleet_informations['items'].each do |item|
         if item['roleName'].include?('Boss')
           fleet.fc_name = item['character']['name']
-          fleet.fc_id = item['character']['id_str']
+          fleet.fc_id = item['character']['id']
         end
       end
     end

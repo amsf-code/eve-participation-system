@@ -6,9 +6,9 @@ class CreateCorporations < ActiveRecord::Migration
       t.string :name
       t.string :ticker
 
-      t.string :corporation_id
-      
-      t.string :member_count
+      t.integer :corporation_id
+
+      t.integer :member_count
 
       t.timestamps null: false
     end

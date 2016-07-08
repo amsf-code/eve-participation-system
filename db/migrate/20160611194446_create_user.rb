@@ -2,15 +2,14 @@ class CreateUser < ActiveRecord::Migration
   def change
     create_table :users do |t|
       t.string :character_name
-      t.string :character_id
+      t.integer :character_id
 
       t.string :corporation_name
-      t.string :corporation_id
-
-      t.string :alliance_name
-      t.string :alliance_id
+      t.integer :corporation_id
 
       t.timestamps null: false
     end
+
+    add_index :users, %i(character_id), unique: true
   end
 end

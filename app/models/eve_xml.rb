@@ -10,7 +10,7 @@ class EveXml
   CORPORATION_SHEET_ENDPOINT = '/corp/CorporationSheet.xml.aspx?corporationID='
 
   def self.corporation_sheet(corporation_id)
-    request = BASE_PATH + CORPORATION_SHEET_ENDPOINT + corporation_id
+    request = BASE_PATH + CORPORATION_SHEET_ENDPOINT + corporation_id.to_s
     Nokogiri::XML(open(request))
   end
 end

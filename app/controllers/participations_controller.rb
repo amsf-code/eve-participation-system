@@ -14,17 +14,17 @@ class ParticipationsController < ApplicationController
         participation.fleet_id = @fleet.id
 
         participation.character_name = item['character']['name']
-        participation.character_id = item['character']['id_str']
+        participation.character_id = item['character']['id']
 
         participation.ship_name = item['ship']['name']
-        participation.ship_id = item['ship']['id_str']
+        participation.ship_id = item['ship']['id']
 
         participation.solarsystem_name = item['solarSystem']['name']
-        participation.solarsystem_id = item['solarSystem']['id_str']
+        participation.solarsystem_id = item['solarSystem']['id']
 
         if item['station'].present?
           participation.station_name = item['station']['name']
-          participation.station_id = item['station']['id_str']
+          participation.station_id = item['station']['id']
         end
 
         if item['roleName'].include?('Boss')

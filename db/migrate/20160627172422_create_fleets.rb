@@ -10,14 +10,14 @@ class CreateFleets < ActiveRecord::Migration
       t.text :name
 
       t.string :fc_name
-      t.string :fc_id
+      t.integer :fc_id
 
       t.string :doctrin
 
       t.string :reason
       t.text :details
 
-      t.string :pilot_count
+      t.integer :pilot_count
 
       t.datetime :started_at
       t.datetime :ended_at

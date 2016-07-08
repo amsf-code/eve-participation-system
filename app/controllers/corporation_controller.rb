@@ -12,11 +12,11 @@ class CorporationController < ApplicationController
       corporation = Corporation.new
       corporation.alliance_id = @alliance.id
       corporation.name = corporation_infos['name']
-      corporation.corporation_id = corporation_infos['id_str']
+      corporation.corporation_id = corporation_infos['id']
 
-      corporation_details = EveXml.corporation_sheet(corporation_infos['id_str'])
+      corporation_details = EveXml.corporation_sheet(corporation_infos['id'])
       corporation.ticker = corporation_details.at_xpath('//ticker').inner_text
-      corporation.member_count = corporation_details.at_xpath('//memberCount').inner_text
+      corporation.member_count = corporation_details.at_xpath('//memberCount').inner_text.to_i
 
       corporation.save
     end

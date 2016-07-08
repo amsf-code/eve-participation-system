@@ -12,7 +12,7 @@ class EveCrest
   CORPORATION_ENDPOINT = 'corporations/'
 
   def self.character(eve_character_id)
-    request = BASE_PATH + CHARACTER_ENDPOINT + eve_character_id + '/'
+    request = BASE_PATH + CHARACTER_ENDPOINT + eve_character_id.to_s + '/'
     response = RestClient.get request
     JSON.parse(response)
   end
@@ -38,13 +38,13 @@ class EveCrest
   end
 
   def self.alliance(alliance_id)
-    request = BASE_PATH + ALLIANCES_ENDPOINT + alliance_id + '/'
+    request = BASE_PATH + ALLIANCES_ENDPOINT + alliance_id.to_s + '/'
     response = RestClient.get request
     JSON.parse(response)
   end
 
   def self.corporation(corporation_id)
-    request = BASE_PATH + CORPORATION_ENDPOINT + corporation_id + '/'
+    request = BASE_PATH + CORPORATION_ENDPOINT + corporation_id.to_s + '/'
     response = RestClient.get request
     JSON.parse(response)
   end

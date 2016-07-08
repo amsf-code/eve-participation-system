@@ -5,7 +5,7 @@ class CreateCharacters < ActiveRecord::Migration
       t.references :alliance
 
       t.string :name
-      t.string :character_id
+      t.integer :character_id
 
       t.string :corporation_name
 

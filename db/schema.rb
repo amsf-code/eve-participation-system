@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20160627172455) do
   create_table "alliances", force: :cascade do |t|
     t.string   "name"
     t.string   "short_name"
-    t.string   "alliance_id"
+    t.integer  "alliance_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20160627172455) do
     t.integer  "corporation_id"
     t.integer  "alliance_id"
     t.string   "name"
-    t.string   "character_id"
+    t.integer  "character_id"
     t.string   "corporation_name"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20160627172455) do
     t.integer  "alliance_id"
     t.string   "name"
     t.string   "ticker"
-    t.string   "corporation_id"
-    t.string   "member_count"
+    t.integer  "corporation_id"
+    t.integer  "member_count"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -53,11 +53,11 @@ ActiveRecord::Schema.define(version: 20160627172455) do
     t.string   "eve_fleet_id"
     t.text     "name"
     t.string   "fc_name"
-    t.string   "fc_id"
+    t.integer  "fc_id"
     t.string   "doctrin"
     t.string   "reason"
     t.text     "details"
-    t.string   "pilot_count"
+    t.integer  "pilot_count"
     t.datetime "started_at"
     t.datetime "ended_at"
     t.datetime "created_at",   null: false
@@ -67,13 +67,13 @@ ActiveRecord::Schema.define(version: 20160627172455) do
   create_table "participations", force: :cascade do |t|
     t.integer  "fleet_id"
     t.string   "character_name"
-    t.string   "character_id"
+    t.integer  "character_id"
     t.string   "ship_name"
-    t.string   "ship_id"
+    t.integer  "ship_id"
     t.string   "solarsystem_name"
-    t.string   "solarsystem_id"
+    t.integer  "solarsystem_id"
     t.string   "station_name"
-    t.string   "station_id"
+    t.integer  "station_id"
     t.boolean  "fc"
     t.boolean  "wing_booster"
     t.datetime "created_at",       null: false
@@ -84,13 +84,13 @@ ActiveRecord::Schema.define(version: 20160627172455) do
 
   create_table "users", force: :cascade do |t|
     t.string   "character_name"
-    t.string   "character_id"
+    t.integer  "character_id"
     t.string   "corporation_name"
-    t.string   "corporation_id"
-    t.string   "alliance_name"
-    t.string   "alliance_id"
+    t.integer  "corporation_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
+
+  add_index "users", ["character_id"], name: "index_users_on_character_id", unique: true
 
 end
